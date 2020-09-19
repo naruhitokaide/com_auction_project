@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Icons -->
+  <script src="https://kit.fontawesome.com/48067674f6.js" crossorigin="anonymous"></script>
+
+  <title>Buy | techprowl</title>
+</head>
+
+<body>
+  <header class="tester">
+
+    <!-- Navbar -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top blue-background">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html"><img src="img/logo_2.png" alt="logo" width="180px"></a>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav">
+            <li class="nav-item active mr-lg-4 nav-item-collapse">
+              <a class="navbar-link text-white" href="index.html">Buy</a>
+            </li>
+            <li class="nav-item mr-lg-4 nav-item-collapse">
+              <a class="navbar-link text-white" href="createlisting.html">Sell</a>
+            </li>
+            <li class="nav-item mr-lg-4 nav-item-collapse">
+              <a class="navbar-link text-white" href="#">My Listings</a>
+            </li>
+            <li class="nav-item mr-lg-4 nav-item-collapse">
+              <a class="navbar-link text-white" href="watchlist.html">Watch List</a>
+            </li>
+          </ul>
+
+          <div class="ml-auto">
+            <button type="button" class="btn btn-outline-light btn-sm-block btn-login"></span>Login</button>
+            <button type="button" class="btn btn-light btn-sm-block btn-sign-up"></span>Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main style="margin-top: 100px;">
+    <div class="container jumbotron mt-4" style>
+      <div class="row align-items-center">
+        <div class="col-md-7 text-center text-md-left">
+          <h1>Auction your used computers</h1>
+          <p>Techprowl hosts auctions for a range of different brands of computers, both desktops and laptops from all
+            around Australia.</p>
+          <a class="btn btn-blue btn-lg" href="createlisting.html" role="button">Create Listing</a>
+        </div>
+
+        <div class="col-md-5">
+          <img class="img-fluid" src="img/shopphoto.svg">
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Bids -->
+
+    <div class="container text-center">
+      <h2 class="responsive-heading">🔥 Hot Auctions Right Now 🔥</h2>
+    </div>
+
+    <!-- Category Menu-->
+
+    <nav class="container navbar navbar-expand-lg navbar-light mb-2 justify-content-center">
+      <ul class="navbar-nav category-menu">
+        <li class="nav-item dropdown">
+          <a class="dropdown-toggle ml-4" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Brand
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Apple</a>
+            <a class="dropdown-item" href="#">Lenovo</a>
+            <a class="dropdown-item" href="#">Dell</a>
+            <a class="dropdown-item" href="#">HP</a>
+            <a class="dropdown-item" href="#">Microsoft</a>
+            <a class="dropdown-item" href="#">Acer</a>
+            <a class="dropdown-item" href="#">Custom</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="dropdown-toggle ml-4" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            CPU
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Core i7</a>
+            <a class="dropdown-item" href="#">Core i5</a>
+            <a class="dropdown-item" href="#">Core i3</a>
+            <a class="dropdown-item" href="#">Pentium</a>
+            <a class="dropdown-item" href="#">Ryzen 7</a>
+            <a class="dropdown-item" href="#">Ryzen 5</a>
+            <a class="dropdown-item" href="#">Ryzen 3</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="dropdown-toggle ml-4" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            RAM
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">32GB</a>
+            <a class="dropdown-item" href="#">16GB</a>
+            <a class="dropdown-item" href="#">8GB</a>
+            <a class="dropdown-item" href="#">4GB</a>
+
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="dropdown-toggle ml-4" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Storage
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">1TB+</a>
+            <a class="dropdown-item" href="#">512GB</a>
+            <a class="dropdown-item" href="#">256GB</a>
+            <a class="dropdown-item" href="#">128GB</a>
+            <a class="dropdown-item" href="#">64GB</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- First Row -->
+    <section>
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="card shadow-sm border-light mb-4 listing-card">
+              <a href="itemdetails.html" class="position-relative">
+                <img
+                  src="https://images.unsplash.com/photo-1576057121845-85eca73ce825?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
+                  class="card-img-top" alt="image"> </a>
+              <div class="card-body">
+                <a href="itemdetails.html">
+                  <h5 class="font-weight-normal">Surface Pro 4</h5>
+                </a>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i
+                      class="fas fa-sort-numeric-up-alt orange-icon"></i> Total Bids: <strong>16</strong></span>
+                </div>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-tags orange-icon"></i> Current Bid:
+                    <strong>$1000</strong></span>
+                </div>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-clock orange-icon"></i> Time Left:
+                    <strong>DD:HH:MM</strong></span>
+                </div>
+
+                <a class="btn btn-blue btn-block" href="#" role="button"><i class="fas fa-eye"></i> Watch List</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card shadow-sm border-light mb-4 listing-card">
+              <a href="itemdetails.html" class="position-relative">
+                <img
+                  src="https://images.unsplash.com/photo-1577375729152-4c8b5fcda381?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
+                  class="card-img-top" alt="image"> </a>
+              <div class="card-body">
+                <a href="itemdetails.html">
+                  <h5 class="font-weight-normal">Dell XPS 15</h5>
+                </a>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i
+                      class="fas fa-sort-numeric-up-alt orange-icon"></i> Total Bids: <strong>14</strong></span>
+                </div>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-tags orange-icon"></i> Current Bid:
+                    <strong>$1500</strong></span>
+                </div>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-clock orange-icon"></i> Time Left:
+                    <strong>DD:HH:MM</strong></span>
+                </div>
+
+                <a class="btn btn-blue btn-block" href="#" role="button"><i class="fas fa-eye"></i> Watch List</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card shadow-sm border-light mb-4 listing-card">
+              <a href="itemdetails.html" class="position-relative">
+                <img
+                  src="https://images.unsplash.com/photo-1493119508027-2b584f234d6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+                  class="card-img-top" alt="image"> </a>
+              <div class="card-body">
+                <a href="itemdetails.html">
+                  <h5 class="font-weight-normal">Macbook Air 11</h5>
+                </a>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i
+                      class="fas fa-sort-numeric-up-alt orange-icon"></i> Total Bids: <strong>13</strong></span>
+                </div>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-tags orange-icon"></i> Current Bid:
+                    <strong>$1050</strong></span>
+                </div>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-clock orange-icon"></i> Time Left:
+                    <strong>DD:HH:MM</strong></span>
+                </div>
+
+                <a class="btn btn-blue btn-block" href="#" role="button"><i class="fas fa-eye"></i> Watch List</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card shadow-sm border-light mb-4 listing-card">
+              <a href="itemdetails.html" class="position-relative">
+                <img
+                  src="https://images.unsplash.com/photo-1585247226801-bc613c441316?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
+                  class="card-img-top" alt="image"> </a>
+              <div class="card-body">
+                <a href="itemdetails.html">
+                  <h5 class="font-weight-normal">Macbook Pro 15</h5>
+                </a>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i
+                      class="fas fa-sort-numeric-up-alt orange-icon"></i> Total Bids: <strong>13</strong></span>
+                </div>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-tags orange-icon"></i> Current Bid:
+                    <strong>$2100</strong></span>
+                </div>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-clock orange-icon"></i> Time Left:
+                    <strong>DD:HH:MM</strong></span>
+                </div>
+
+                <a class="btn btn-blue btn-block" href="#" role="button"><i class="fas fa-eye"></i> Watch List</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Second Row -->
+        <div class="row">
+          <div class="col-md-6 col-lg-3">
+            <div class="card shadow-sm border-light mb-4 listing-card">
+              <a href="itemdetails.html" class="position-relative">
+                <img
+                  src="https://images.unsplash.com/photo-1572662073398-afd34ca1f866?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
+                  class="card-img-top" alt="image"> </a>
+              <div class="card-body">
+                <a href="itemdetails.html">
+                  <h5 class="font-weight-normal">Surface Pro 3</h5>
+                </a>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i
+                      class="fas fa-sort-numeric-up-alt orange-icon"></i> Total Bids: <strong>12</strong></span>
+                </div>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-tags orange-icon"></i> Current Bid:
+                    <strong>$500</strong></span>
+                </div>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-clock orange-icon"></i> Time Left:
+                    <strong>DD:HH:MM</strong></span>
+                </div>
+
+                <a class="btn btn-blue btn-block" href="#" role="button"><i class="fas fa-eye"></i> Watch List</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card shadow-sm border-light mb-4 listing-card">
+              <a href="itemdetails.html" class="position-relative">
+                <img
+                  src="https://images.unsplash.com/photo-1577375774296-1480089cb555?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
+                  class="card-img-top" alt="image"> </a>
+              <div class="card-body">
+                <a href="itemdetails.html">
+                  <h5 class="font-weight-normal">Dell All-In-One</h5>
+                </a>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i
+                      class="fas fa-sort-numeric-up-alt orange-icon"></i> Total Bids: <strong>11</strong></span>
+                </div>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-tags orange-icon"></i> Current Bid:
+                    <strong>$900</strong></span>
+                </div>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-clock orange-icon"></i> Time Left:
+                    <strong>DD:HH:MM</strong></span>
+                </div>
+
+                <a class="btn btn-blue btn-block" href="#" role="button"><i class="fas fa-eye"></i> Watch List</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card shadow-sm border-light mb-4 listing-card">
+              <a href="itemdetails.html" class="position-relative">
+                <img
+                  src="https://images.unsplash.com/photo-1493020258366-be3ead1b3027?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
+                  class="card-img-top" alt="image"> </a>
+              <div class="card-body">
+                <a href="itemdetails.html">
+                  <h5 class="font-weight-normal">Macbook Air 13</h5>
+                </a>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i
+                      class="fas fa-sort-numeric-up-alt orange-icon"></i> Total Bids: <strong>10</strong></span>
+                </div>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-tags orange-icon"></i> Current Bid:
+                    <strong>$600</strong></span>
+                </div>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-clock orange-icon"></i> Time Left:
+                    <strong>DD:HH:MM</strong></span>
+                </div>
+
+                <a class="btn btn-blue btn-block" href="#" role="button"><i class="fas fa-eye"></i> Watch List</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card shadow-sm border-light mb-4 listing-card">
+              <a href="itemdetails.html" class="position-relative">
+                <img
+                  src="https://images.unsplash.com/photo-1547731030-cd126f44e9c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
+                  class="card-img-top" alt="image"> </a>
+              <div class="card-body">
+                <a href="itemdetails.html">
+                  <h5 class="font-weight-normal">Macbook Pro 13</h5>
+                </a>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i
+                      class="fas fa-sort-numeric-up-alt orange-icon"></i> Total Bids: <strong>10</strong></span>
+                </div>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-tags orange-icon"></i> Current Bid:
+                    <strong>$999</strong></span>
+                </div>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-clock orange-icon"></i> Time Left:
+                    <strong>DD:HH:MM</strong></span>
+                </div>
+
+                <a class="btn btn-blue btn-block" href="#" role="button"><i class="fas fa-eye"></i> Watch List</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ending Soon Items -->
+
+        <div class="container text-center mb-5 mt-5">
+          <h2 class="responsive-heading">⏰ Ending Soon ⏰</h2>
+        </div>
+
+        <!-- Third Row -->
+
+        <div class="row">
+          <div class="col-md-6 col-lg-3">
+            <div class="card shadow-sm border-light mb-4 listing-card">
+              <a href="itemdetails.html" class="position-relative">
+                <img
+                  src="https://images.unsplash.com/photo-1570485071395-29b575ea3b4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+                  class="card-img-top" alt="image"> </a>
+              <div class="card-body">
+                <a href="itemdetails.html">
+                  <h5 class="font-weight-normal">Acer Desktop</h5>
+                </a>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-tags orange-icon"></i> Current Bid:
+                    <strong>$300</strong></span>
+                </div>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-clock orange-icon"></i> Time Left:
+                    <strong>DD:HH:MM</strong></span>
+                </div>
+
+                <a class="btn btn-blue btn-block" href="#" role="button"><i class="fas fa-eye"></i> Watch List</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card shadow-sm border-light mb-4 listing-card">
+              <a href="itemdetails.html" class="position-relative">
+                <img
+                  src="https://images.unsplash.com/photo-1566998499249-d5e86aaab935?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
+                  class="card-img-top" alt="image"> </a>
+              <div class="card-body">
+                <a href="itemdetails.html">
+                  <h5 class="font-weight-normal">Macbook Pro 13</h5>
+                </a>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-tags orange-icon"></i> Current Bid:
+                    <strong>$900</strong></span>
+                </div>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-clock orange-icon"></i> Time Left:
+                    <strong>DD:HH:MM</strong></span>
+                </div>
+
+                <a class="btn btn-blue btn-block" href="#" role="button"><i class="fas fa-eye"></i> Watch List</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card shadow-sm border-light mb-4 listing-card">
+              <a href="itemdetails.html" class="position-relative">
+                <img
+                  src="https://images.unsplash.com/photo-1579493593963-2ca325e3703e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                  class="card-img-top" alt="image"> </a>
+              <div class="card-body">
+                <a href="itemdetails.html">
+                  <h5 class="font-weight-normal">Custom Desktop</h5>
+                </a>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-tags orange-icon"></i> Current Bid:
+                    <strong>$750</strong></span>
+                </div>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-clock orange-icon"></i> Time Left:
+                    <strong>DD:HH:MM</strong></span>
+                </div>
+
+                <a class="btn btn-blue btn-block" href="#" role="button"><i class="fas fa-eye"></i> Watch List</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card shadow-sm border-light mb-4 listing-card">
+              <a href="itemdetails.html" class="position-relative">
+                <img
+                  src="https://images.unsplash.com/photo-1593642532973-d31b6557fa68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
+                  class="card-img-top" alt="image"> </a>
+              <div class="card-body">
+                <a href="itemdetails.html">
+                  <h5 class="font-weight-normal">Dell XPS 13</h5>
+                </a>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-tags orange-icon"></i> Current Bid:
+                    <strong>$800</strong></span>
+                </div>
+
+                <div class="d-block">
+                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-clock orange-icon"></i> Time Left:
+                    <strong>DD:HH:MM</strong></span>
+                </div>
+
+                <a class="btn btn-blue btn-block" href="#" role="button"><i class="fas fa-eye"></i> Watch List</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="container">
+      <ul class="pagination justify-content-end">
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Next</a>
+        </li>
+      </ul>
+    </nav>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-4">
+
+    <div class="footer-links p-3 p-sm-5 p-md-5 p-lg-5">
+
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-4">
+            <h5 class="footer-heading text-primary mb-4">Company Info</h5>
+            <p><a href="#">About techprowl</a></p>
+            <p><a href="#">Careers</a></p>
+            <p><a href="#">Newsroom</a></p>
+            <p><a href="#">Testimonials</a></p>
+          </div>
+
+          <div class="col-4">
+            <h5 class="footer-heading text-primary mb-4">Contact Us</h5>
+            <p><a href="#">Email</a></p>
+            <p><a href="#">Facebook</a></p>
+            <p><a href="#">+61 0423 3120</a></p>
+            <p><a href="#">Brisbane, Australia</a></p>
+          </div>
+
+          <div class="col-4">
+            <h5 class="footer-heading text-primary mb-4">Navigation</h5>
+            <p><a href="index.html">Buy</a></p>
+            <p><a href="createlisting.html">Sell</a></p>
+            <p><a href="#">My Listings</a></p>
+            <p><a href="watchlist.html">Watch List</a></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Media Icons -->
+      <div class="row text-center pt-5">
+        <div class="col-md-12">
+          <div>
+            <a href="#" class="fb-ic social-icon">
+              <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x blue-text"></i>
+            </a>
+
+            <a href="#" class="ins-ic social-icon">
+              <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x blue-text"></i>
+            </a>
+
+            <a href="#" class="li-ic social-icon">
+              <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x blue-text"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="blue-background text-center py-3 text-white">
+      2020 techprowl &copy;
+    </div>
+  </footer>
+
+  <!--Bootstrap Core Javascript-->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

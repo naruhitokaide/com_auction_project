@@ -1,0 +1,144 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+h1, h2, h3, h4, h5, .navbar {
+    font-family: 'Poppins', sans-serif;
+}
+
+p, a {
+    font-family: "Open Sans", sans-serif;
+}
+
+.btn, .jumbotron, .card, .form-control, .navbar-toggler, .dropdown-menu{
+    border-radius: 0.15rem;
+}
+
+.card-img-top {
+    border-top-left-radius: 0.15rem;
+    border-top-right-radius: 0.15rem;
+}
+
+/* Button styling */
+
+.btn-sign-up{
+    background-color: #ff854b;
+    color: white;
+}
+
+.btn-blue:hover {
+    color: white;
+    background: #ff854b;
+}
+
+.btn-login:hover, .btn-sign-up:hover {
+    transform: scale(0.9);
+}
+
+.btn-login, .btn-sign-up {
+    transition: transform ease-out 0.3s, -webkit-transform ease-out 0.3s;
+    box-shadow: 0 8px 6px -9px black;
+}
+
+.btn-blue {
+    background-color: #3a86ff;
+    color: white;
+}
+
+.custom-toggler.navbar-toggler { 
+    border-color: white; 
+}
+
+.navbar-link:hover {
+    text-decoration: none;
+    border-bottom: 2px solid white;
+}
+
+/* Colours */
+
+.blue-background {
+    background-color: #3a86ff;
+}
+
+.blue-text {
+    color: #3a86ff;
+}
+
+.orange-icon {
+    color: #ff854b;
+}
+
+/* Hover effect on listing cards */
+
+.listing-card:hover {
+    transform: scale(1.03);
+    transition: transform ease-out 0.3s, -webkit-transform ease-out 0.3s;
+}
+
+/* Border radius for page navigation on buy screen */
+
+.page-item:first-child .page-link {
+    border-top-left-radius: 0.15rem;
+    border-bottom-left-radius: 0.15rem;
+}
+
+.page-item:last-child .page-link {
+    border-top-right-radius: 0.15rem;
+    border-bottom-right-radius: 0.15rem;
+}
+
+.social-icon:hover {
+    text-decoration: none;
+    color: #ff854b;
+}
+
+.footer-links {
+    background: #e9ecef;
+}
+
+@media (max-width: 1200px){
+    .reviews-box {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .nav-item-collapse {
+        background-color:#5999ff;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 0.15rem;
+        text-align: center;
+    }
+
+    .btn-sm-block {
+        display: block;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    .category-menu {
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 768px) {
+    .reviews-box {
+        padding-left:0;
+    }
+}
+
+@media (max-width: 477px) {
+    .responsive-heading {
+        font-size: 1.5rem;
+    }
+
+    .footer-links {
+        padding: 1.8rem;
+        font-size: 0.8rem;;
+    }
+
+    .footer-heading {
+        font-size: 1rem;
+    }
+}
