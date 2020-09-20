@@ -1,66 +1,6 @@
-<!doctype html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
-  <!-- External CSS -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='/css/styles.css')}}">
-
-  <!-- Icons -->
-  <script src="https://kit.fontawesome.com/48067674f6.js" crossorigin="anonymous"></script>
-
-  <title>Buy | techprowl</title>
-</head>
-
-<body>
-  <header class="tester">
-
-    <!-- Navbar -->
-
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top blue-background">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="index.html"><img src="{{ url_for('static', filename='/img/logo.png')}}" alt="logo" width="180px"></a>
-        </div>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav">
-            <li class="nav-item active mr-lg-4 nav-item-collapse">
-              <a class="navbar-link text-white" href="index.html">Buy</a>
-            </li>
-            <li class="nav-item mr-lg-4 nav-item-collapse">
-              <a class="navbar-link text-white" href="createlisting.html">Sell</a>
-            </li>
-            <li class="nav-item mr-lg-4 nav-item-collapse">
-              <a class="navbar-link text-white" href="#">My Listings</a>
-            </li>
-            <li class="nav-item mr-lg-4 nav-item-collapse">
-              <a class="navbar-link text-white" href="watchlist.html">Watch List</a>
-            </li>
-          </ul>
-
-          <div class="ml-auto">
-            <button type="button" class="btn btn-outline-light btn-sm-block btn-login"></span>Login</button>
-            <button type="button" class="btn btn-light btn-sm-block btn-sign-up"></span>Sign Up</button>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <main style="margin-top: 100px;">
+  {% block header %}
     <div class="container jumbotron mt-4" style>
       <div class="row align-items-center">
         <div class="col-md-7 text-center text-md-left">
@@ -75,9 +15,11 @@
         </div>
       </div>
     </div>
+  {% endblock %}
 
+  {% block content %}
+  <main>
     <!-- Top Bids -->
-
     <div class="container text-center">
       <h2 class="responsive-heading">🔥 Hot Auctions Right Now 🔥</h2>
     </div>
@@ -522,75 +464,4 @@
       </ul>
     </nav>
   </main>
-
-  <!-- Footer -->
-  <footer class="mt-4">
-
-    <div class="footer-links p-3 p-sm-5 p-md-5 p-lg-5">
-
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-4">
-            <h5 class="footer-heading text-primary mb-4">Company Info</h5>
-            <p><a href="#">About techprowl</a></p>
-            <p><a href="#">Careers</a></p>
-            <p><a href="#">Newsroom</a></p>
-            <p><a href="#">Testimonials</a></p>
-          </div>
-
-          <div class="col-4">
-            <h5 class="footer-heading text-primary mb-4">Contact Us</h5>
-            <p><a href="#">Email</a></p>
-            <p><a href="#">Facebook</a></p>
-            <p><a href="#">+61 0423 3120</a></p>
-            <p><a href="#">Brisbane, Australia</a></p>
-          </div>
-
-          <div class="col-4">
-            <h5 class="footer-heading text-primary mb-4">Navigation</h5>
-            <p><a href="index.html">Buy</a></p>
-            <p><a href="createlisting.html">Sell</a></p>
-            <p><a href="#">My Listings</a></p>
-            <p><a href="watchlist.html">Watch List</a></p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Social Media Icons -->
-      <div class="row text-center pt-5">
-        <div class="col-md-12">
-          <div>
-            <a href="#" class="fb-ic social-icon">
-              <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x blue-text"></i>
-            </a>
-
-            <a href="#" class="ins-ic social-icon">
-              <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x blue-text"></i>
-            </a>
-
-            <a href="#" class="li-ic social-icon">
-              <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x blue-text"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="blue-background text-center py-3 text-white">
-      2020 techprowl &copy;
-    </div>
-  </footer>
-
-  <!--Bootstrap Core Javascript-->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
-  </script>
-</body>
-
-</html>
+  {% endblock %}
