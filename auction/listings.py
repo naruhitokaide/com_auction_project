@@ -12,7 +12,9 @@ def showlisting(id):
 
 def get_listing():
 
-  # Test description
+  # For testing purposes to make sure showlisting.html is updating dynmically 
+
+
   listing_description= """ 
     The laptop is in excellent condition with only 61 battery cycles.
 
