@@ -4,7 +4,7 @@
 <main style="margin-top: 100px;">
 
     <div class="container">
-      <h2 class="responsive-heading my-4 text-center text-md-left">Macbook Pro 15" 2019</h2>
+      <h2 class="responsive-heading my-4 text-center text-md-left">{{listing.title}}</h2>
       <div class="row">
         <div class="col-md-6">
           <img class="img-fluid"
@@ -50,15 +50,15 @@
 
           <div class="text-center text-md-left">
             <p class="d-block mb-4"><i class="fas fa-check-circle text-success"></i><span class="text-muted">
-                Status:</span><strong> Active</strong></p>
+                Status:</span><strong> {{listing.status}}</strong></p>
             <p class="d-block mb-4"><i class="fas fa-user blue-text"></i><span class="text-muted">
-                Seller:</span><strong> ben04rogers</strong></p>
+                Seller:</span><strong> {{listing.seller}}</strong></p>
             <p class="d-block mb-4"><i class="fas fa-clock text-warning"></i><span class="text-muted"> Time
-                Left:</span><strong> HH:MM:SS</strong></p>
+                Left:</span><strong> {{listing.time_left}}</strong></p>
             <p class="d-block mb-4"><i class="fas fa-shield-alt text-info"></i><span class="text-muted">
-                Condition:</span><strong> Used</strong></p>
+                Condition:</span><strong> {{listing.condition}}</strong></p>
             <p class="d-block mb-4"><i class="fas fa-sort-numeric-up-alt text-muted"></i><span class="text-muted"> Total
-                Bids::</span><strong> 16</strong></p>
+                Bids:</span><strong> {{listing.total_bids}}</strong></p>
             <a class="btn btn-blue mb-3" href="#" role="button"><i class="fas fa-eye"></i> Watch List</a>
           </div>
 
@@ -68,7 +68,7 @@
             <!-- Left Side -->
             <div class="col-lg-3 text-center">
               <p>Current Bid</p>
-              <h4 class="orange-icon">$2100</h4>
+              <h4 class="orange-icon">${{listing.current_bid}}</h4>
             </div>
 
             <!-- Right Side -->
@@ -87,10 +87,7 @@
           <div class="row card bg-light mt-3 text-muted">
             <div class="card-header">Description</div>
             <div class="card-body pb-0">
-              <p>The laptop is in excellent condition with only 61 battery cycles.</p>
-              <p>Screen is in like new condition, no scratched marks or dead pixels absolutely perfect.</p>
-              <p>Keyboard perfectly functional There is a small chip in the Command Key (see Image) I don't know what
-                has caused it, everything else is perfect condition.</p>
+              <p>{{listing.description}}</p>
             </div>
           </div>
         </div>
@@ -153,26 +150,18 @@
             </div>
 
             <div class="card-body text-left">
-              <div class="mb-4">
+              {% for review in listing.reviews %} 
+              <div class="mb-4 border-bottom">
                 <i class="fas fa-star orange-icon"></i>
                 <i class="fas fa-star orange-icon"></i>
                 <i class="fas fa-star orange-icon"></i>
                 <i class="fas fa-star orange-icon"></i>
                 <i class="far fa-star orange-icon"></i>
-                <h5 class="review-title mt-2">Overall Great Device!</h5>
-                <p class="review-description">The 15" Macbook Pro is a an almots perfect computer. Highly recommend for
-                  anyone looking for a new device.</p>
+                <h5 class="review-title mt-2">{{review.title}}</h5>
+                <p>{{review.user}}</p>
+                <p class="review-description">{{review.feedback}}</p>
               </div>
-              <div class="mb-4">
-                <i class="fas fa-star orange-icon"></i>
-                <i class="fas fa-star orange-icon"></i>
-                <i class="fas fa-star orange-icon"></i>
-                <i class="far fa-star orange-icon"></i>
-                <i class="far fa-star orange-icon"></i>
-                <h5 class="review-title mt-2">Pretty good but not perfect</h5>
-                <p class="review-description">This device is a solid option, however it is not the best value for the
-                  money. Expensive laptop and there are alot of cheaper Windows devices available</p>
-              </div>
+              {% endfor %}
             </div>
           </div>
         </div>
