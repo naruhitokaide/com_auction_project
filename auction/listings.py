@@ -14,7 +14,6 @@ def get_listing():
 
   # For testing purposes to make sure showlisting.html is updating dynmically 
 
-
   listing_description= """ 
     The laptop is in excellent condition with only 61 battery cycles.
 
@@ -25,8 +24,7 @@ def get_listing():
   image_location = 'https://images.unsplash.com/photo-1585247226801-bc613c441316?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80'
   
   listing = Listing('Testing New Lising', '500', '899', 18, listing_description, 'Active', 'Used', image_location, '12:01:56', 'User1')
-  
-  # test reviews
+
   review = Review('User1', 'Great device for school!', 'Awesome computer')
   review2 = Review('User2', 'Amazing!', 'Great so far')
 
