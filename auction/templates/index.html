@@ -11,7 +11,7 @@
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
   <!-- External CSS -->
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='/css/styles.css')}}">
 
   <!-- Icons -->
   <script src="https://kit.fontawesome.com/48067674f6.js" crossorigin="anonymous"></script>
@@ -27,7 +27,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top blue-background">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="index.html"><img src="img/logo_2.png" alt="logo" width="180px"></a>
+          <a class="navbar-brand" href="index.html"><img src="{{ url_for('static', filename='/img/logo.png')}}" alt="logo" width="180px"></a>
         </div>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -71,7 +71,7 @@
         </div>
 
         <div class="col-md-5">
-          <img class="img-fluid" src="img/shopphoto.svg">
+          <img class="img-fluid" src="{{ url_for('static', filename='/img/shopphoto.svg')}}">
         </div>
       </div>
     </div>

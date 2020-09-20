@@ -1,2 +1,0 @@
-# IAB207_ASSESSMENT_3
-Group 14
