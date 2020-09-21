@@ -23,7 +23,7 @@ def get_listing():
   
   image_location = 'https://images.unsplash.com/photo-1585247226801-bc613c441316?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80'
   
-  listing = Listing('Testing New Lising', '500', '899', 18, listing_description, 'Active', 'Used', image_location, '12:01:56', 'User1')
+  listing = Listing('Testing New Lising', '500', listing_description, 'Active', 'Used', image_location, '19/08/2020', 'User1')
 
   review = Review('User1', 'Great device for school!', 'Awesome computer')
   review2 = Review('User2', 'Amazing!', 'Great so far')

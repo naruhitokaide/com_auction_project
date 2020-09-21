@@ -1,14 +1,14 @@
 class Listing: 
-    def __init__(self, title, starting_bid, current_bid, total_bids, description, status, condition, image, time_left, seller):
+    def __init__(self, title, starting_bid, description, status, condition, image, end_date, seller):
         self.title = title
         self.starting_bid = starting_bid
-        self.current_bid = current_bid
-        self.total_bids = total_bids
+        self.current_bid = starting_bid
+        self.total_bids = 0
         self.description = description
         self.condition = condition
         self.status = status
         self.image = image
-        self.time_left = time_left
+        self.end_date = end_date
         self.seller = seller
         self.reviews = list()
 
