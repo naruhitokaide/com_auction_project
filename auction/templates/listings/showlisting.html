@@ -96,10 +96,14 @@
       <div class="row">
         <div class="reviews-box col-md-12 pr-0">
           <div class="card text-center">
+
             <div class="card-header">
               <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
-                  <a class="nav-link active">Reviews</a>
+                  <a href="#specifications" class="nav-link active" role="tab" data-toggle="tab">Item Details</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#reviews" class="nav-link" role="tab" data-toggle="tab">Reviews</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#reviewsModal" data-toggle="modal" data-target="#reviewsModal">Post
@@ -107,6 +111,31 @@
                 </li>
               </ul>
             </div>
+
+            <div class="tab-content">
+              <div role="tabpanel1" class="card-body tab-pane text-left active" id="specifications">
+                <p>i5 processor</p>
+                <p>256GB storage</p>
+                <p>16GB RAM</p>
+              </div>
+  
+              <div role="tabpanel1" class="card-body tab-pane text-left" id="reviews">
+                {% for review in listing.reviews %} 
+                <div class="mb-4 border-bottom">
+                  <i class="fas fa-star orange-icon"></i>
+                  <i class="fas fa-star orange-icon"></i>
+                  <i class="fas fa-star orange-icon"></i>
+                  <i class="fas fa-star orange-icon"></i>
+                  <i class="far fa-star orange-icon"></i>
+                  <h5 class="review-title mt-2">{{review.title}}</h5>
+                  <p>{{review.user}}</p>
+                  <p class="review-description">{{review.feedback}}</p>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+
+            
 
             <!--Modal for posting reviews-->
             <div class="modal fade" id="reviewsModal" tabindex="-1" role="dialog"
@@ -147,21 +176,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div class="card-body text-left">
-              {% for review in listing.reviews %} 
-              <div class="mb-4 border-bottom">
-                <i class="fas fa-star orange-icon"></i>
-                <i class="fas fa-star orange-icon"></i>
-                <i class="fas fa-star orange-icon"></i>
-                <i class="fas fa-star orange-icon"></i>
-                <i class="far fa-star orange-icon"></i>
-                <h5 class="review-title mt-2">{{review.title}}</h5>
-                <p>{{review.user}}</p>
-                <p class="review-description">{{review.feedback}}</p>
-              </div>
-              {% endfor %}
             </div>
           </div>
         </div>
