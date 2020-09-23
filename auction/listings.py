@@ -28,6 +28,8 @@ def get_listing():
   review = Review('User1', 'Great device for school!', 'Awesome computer')
   review2 = Review('User2', 'Amazing!', 'Great so far')
 
+
+
   listing.set_review(review)
   listing.set_review(review2)
 
