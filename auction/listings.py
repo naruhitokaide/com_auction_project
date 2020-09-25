@@ -1,5 +1,6 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request, session, url_for, redirect
 from .models import Listing, Review
+from auction.forms import ListingForm
 
 # Create listing blueprint
 listingbp = Blueprint('listing', __name__, url_prefix='/listings')
@@ -9,6 +10,17 @@ def showlisting(id):
     listing = get_listing()
     return render_template('listings/showlisting.html', listing=listing)
 
+@listingbp.route('/create', methods=['GET', 'POST'])
+def createlisting():
+  form = ListingForm()
+
+  if form.validate_on_submit():
+    print('form is valid')
+    return redirect(url_for('listing.createlisting'))
+  else:
+    print('form is not valid')
+
+  return render_template('listings/createlisting.html', form=form)
 
 def get_listing():
 
@@ -28,9 +40,9 @@ def get_listing():
   review = Review('User1', 'Great device for school!', 'Awesome computer')
   review2 = Review('User2', 'Amazing!', 'Great so far')
 
-
-
   listing.set_review(review)
   listing.set_review(review2)
 
   return listing
+
+
