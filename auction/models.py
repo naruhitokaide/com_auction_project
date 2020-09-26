@@ -20,7 +20,6 @@ class Listing:
         debug_string.format(self.title, self.starting_bid, self.current_bid, self.total_bids, self.description, self.condition, self.time_left, self.seller)
         return debug_string
 
-
 class Review: 
     def __init__ (self, user, title, feedback):
         self.user = user
