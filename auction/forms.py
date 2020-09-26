@@ -38,3 +38,7 @@ class ListingForm(FlaskForm):
     description = TextAreaField('Description', validators=[InputRequired('Description is required'), Length(min=10, max=300, message='Description is too short or too long')])
 
     submit = SubmitField('Post Listing')
+
+class ReviewForm(FlaskForm):
+    feedback = TextAreaField('Review', [InputRequired('Review is required'), Length(min=5, max=400, message='Review is too long or too short')])
+    submit = SubmitField('Post Review') 

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% import "bootstrap/wtf.html" as wtf %}
 {% block content %}
 <main style="margin-top: 100px;">
 
@@ -143,37 +144,17 @@
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title">Rate and review</h5>
+                    <h5 class="modal-title">Leave a review</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body text-left">
-                    <label><strong>Overall Rating</strong></label>
-
-                    <div>
-                      <i class="far fa-star"></i>
-                      <i class="far fa-star"></i>
-                      <i class="far fa-star"></i>
-                      <i class="far fa-star"></i>
-                      <i class="far fa-star"></i>
-                    </div>
-
-                    <div class="pt-3">
-                      <label><strong>Review Title</strong></label>
-                      <input class="form-control" placeholder="Example: Great features!">
-                    </div>
-
-                    <div class="pt-3">
-                      <label class="pt-2"><strong>Description</strong></label>
-                      <textarea class="form-control pt-3" cols="30" rows="3"
-                        placeholder="Example: I bought this laptop a month ago and it has been great so far!"></textarea>
-                    </div>
+                    
+                    {{wtf.quick_form(form, "/listings/{0}/review".format(1))}}
 
                   </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-blue">Post Review</button>
-                  </div>
+                  
                 </div>
               </div>
             </div>
