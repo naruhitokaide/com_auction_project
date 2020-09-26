@@ -10,7 +10,9 @@ def login():
 
     if login_form_instance.validate_on_submit():
         session['email'] = login_form_instance.user_name.data
-        return redirect(url_for('authentication.login'))
+
+        # Once user is logged in, redirect to home page
+        return redirect(url_for('main.index'))
 
     return render_template('authentication/login.html', form=login_form_instance)
 
