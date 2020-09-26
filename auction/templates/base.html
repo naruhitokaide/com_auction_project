@@ -53,12 +53,14 @@
 
           <div class="ml-auto">
             {% if session['email'] %}
+            <!-- Show message and 'logout' button if user is not already logged in-->
             <p class="text-white d-inline mr-2">Welcome, User</p>
+            <a href="{{url_for('authentication.logout')}}" class="btn btn-outline-light btn-sm-block btn-login">Logout</a>
             {% else %}
-            <!--Do nothing-->
-            {% endif %}
+            <!-- Show 'login' and 'sign up' buttons if user is not already logged in-->
             <a href="{{url_for('authentication.login')}}" class="btn btn-outline-light btn-sm-block btn-login">Login</a>
             <a href="{{url_for('authentication.register')}}" class="btn btn-light btn-sm-block btn-sign-up">Sign Up</a>
+            {% endif %}
           </div>
         </div>
       </div>
