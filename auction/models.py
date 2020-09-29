@@ -11,10 +11,6 @@ class User(db.Model):
     
     reviews = db.relationship('Review', backref = 'user')
 
-# TODO 
-# The rest of these below will have to be changed to use SQLAlchemy
-# Delete 'auction.sqlite' and rerun 'create_database.py' once classes are setup
-
 class Listing(db.Model): 
     __tablename__ = 'listings'
     id = db.Column(db.Integer, primary_key = True)
