@@ -7,9 +7,13 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), index=True, unique=True, nullable=False)
     emailid = db.Column(db.String(100), index=True, nullable=False)
+    contactnum = db.Column(db.String(15), index=True, nullable=False)
+    address = db.Column(db.String(100), index=True, nullable=False)
     password_hash = db.Column(db.String(255), nullable=False)
     
     reviews = db.relationship('Review', backref = 'user')
+
+
 
 class Listing(db.Model): 
     __tablename__ = 'listings'
@@ -20,13 +24,15 @@ class Listing(db.Model):
     total_bids = db.Column(db.String(5), nullable = False)
     brand = db.Column(db.String(20), nullable = False)
     cpu = db.Column(db.String(10), nullable = False)
-    ramgb = db.Column(db.Integer, nullable = False)
-    storagegb = db.Column(db.Integer, nullable = False)
+    ram_gb = db.Column(db.Integer, nullable = False)
+    storage_gb = db.Column(db.Integer, nullable = False)
     description = db.Column(db.String(200), nullable = False)
     condition = db.Column(db.String(10), nullable = False)
     status = db.Column(db.String(10), nullable = False)
-    image = db.Column(db.String(400), nullable = False)
-    time_left = db.Column(db.Integer, nullable = False)
+    image_url = db.Column(db.String(400), nullable = False)
+
+    # Testing end_date with datetime, will have to change later
+    end_date = db.Column(db.DateTime, default = datetime.now())
     seller = db.Column(db.String(80), nullable = False)
 
     reviews = db.relationship('Review', backref = 'listing')
