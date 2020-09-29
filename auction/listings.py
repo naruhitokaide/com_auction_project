@@ -2,6 +2,9 @@ from flask import Blueprint, render_template, request, session, url_for, redirec
 from .models import Listing, Review
 from auction.forms import ListingForm, ReviewForm
 from . import db
+from werkzeug.utils import secure_filename
+import os
+
 
 # Create listing blueprint
 listingbp = Blueprint('listing', __name__, url_prefix='/listings')
@@ -17,6 +20,9 @@ def createlisting():
   form = ListingForm()
 
   if form.validate_on_submit():
+    #Check the image file
+    db_file_path = check_upload_file(form)
+
     # Write data to database
     listing = Listing()
     
@@ -32,13 +38,13 @@ def createlisting():
     listing.end_date = form.end_date.data
     listing.status = 'Active'
     listing.description = form.description.data
-    listing.image_url = form.image.data
+    listing.image_url = db_file_path
 
     # Add object to db session
     db.session.add(listing)
 
     # Commit data to database
-    db.session.commit() 
+    db.session.commit()
 
     print('form is valid')
     return redirect(url_for('listing.createlisting'))
@@ -47,6 +53,14 @@ def createlisting():
 
   return render_template('listings/createlisting.html', form=form)
 
+def check_upload_file(form):
+  fp = form.image_url.data
+  filename = fp.filename
+  BASE_PATH = os.path.dirname(__file__)
+  upload_path = os.path.join(BASE_PATH, 'static/img', secure_filename(filename))
+  db_upload_path = '/static/img/'+ secure_filename(filename)
+  fp.save(upload_path)
+  return db_upload_path
 
 
 
