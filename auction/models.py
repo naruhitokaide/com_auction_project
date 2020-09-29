@@ -1,7 +1,6 @@
 from . import db
 from datetime import datetime, date
 
-
 class User(db.Model):
     __tablename__ = 'users' 
     id = db.Column(db.Integer, primary_key=True)
@@ -12,7 +11,6 @@ class User(db.Model):
     password_hash = db.Column(db.String(255), nullable=False)
     
     reviews = db.relationship('Review', backref = 'user')
-
 
 class Listing(db.Model): 
     __tablename__ = 'listings'
@@ -49,7 +47,6 @@ class Review(db.Model):
         debug_string = 'User: {}, Title: {}, Feedback: {}'
         debug_string.format(self.user, self.title, self.feedback)
         return debug_string
-
 
 class WatchListItem(db.Model):
     __tablename__ = 'watchlistitems'
