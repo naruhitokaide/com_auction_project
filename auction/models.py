@@ -1,5 +1,5 @@
 from . import db
-from datetime import datetime
+from datetime import datetime, date
 
 
 class User(db.Model):
@@ -22,6 +22,10 @@ class Listing(db.Model):
     starting_bid = db.Column(db.Integer, nullable = False)
     current_bid = db.Column(db.String(5), nullable = False)
     total_bids = db.Column(db.String(5), nullable = False)
+    brand = db.Column(db.String(20), nullable = False)
+    cpu = db.Column(db.String(10), nullable = False)
+    ramgb = db.Column(db.Integer, nullable = False)
+    storagegb = db.Column(db.Integer, nullable = False)
     description = db.Column(db.String(200), nullable = False)
     condition = db.Column(db.String(10), nullable = False)
     status = db.Column(db.String(10), nullable = False)
@@ -46,11 +50,6 @@ class Listing(db.Model):
 
     def set_review(self, review):
         self.reviews.append(review)
-
-    def __repr__(self):
-        debug_string = 'Title: {}, Start Bid: {}, Current Bid: {}, Total Bids: {}, Description: {}, Condition: {}, Time Left {}, Seller: {}'
-        debug_string.format(self.title, self.starting_bid, self.current_bid, self.total_bids, self.description, self.condition, self.time_left, self.seller)
-        return debug_string
 
 class Review(db.Model):
     __tablename__ = 'reviews' 

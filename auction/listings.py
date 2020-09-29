@@ -25,8 +25,6 @@ def createlisting():
   return render_template('listings/createlisting.html', form=form)
 
 
-
-
 # Testing purposes:  
 
 # def get_listing():
