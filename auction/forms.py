@@ -23,17 +23,16 @@ class RegisterForm(FlaskForm):
 
 class ListingForm(FlaskForm):
     title = StringField('Listing Title', validators=[InputRequired('Listing title is required')])
-    starting_bid = DecimalField('Starting Bid', validators=[InputRequired('Must enter a starting bid')])
+    starting_bid = DecimalField('Starting Bid (Decimal format)', validators=[InputRequired('Must enter a starting bid')])
     brand = SelectField('Brand', choices=[('Apple', 'Apple'), ('Microsoft', 'Microsoft'), ('Dell', 'Dell'), ('HP', 'HP'), ('Lenovo', 'Lenovo'), ('Acer', 'Acer')])
     cpu = SelectField('CPU', choices=[('i3', 'i3'), ('i5', 'i5'), ('i7', 'i7')])
     ram = SelectField('RAM', choices=[('4GB', '4GB'), ('8GB', '8GB'), ('16GB', '16GB'), ('32GB', '32GB')])
     storage = SelectField('Storage', choices=[('64GB', '64GB'), ('128GB', '128GB'), ('256GB', '256GB'), ('512GB', '512GB'), ('1TB', '1TB')])
     condition = SelectField('Condition', choices=[('Excellent', 'Excellent'), ('Good', 'Good'), ('Minor defects', 'Minor defects'), ('Used', 'Used'), ('New', 'New')])
-    end_date =  DateField('End Date', format='%d/%m/%Y')
+    end_date =  DateField('End Date (dd/mm/yyyy)', format='%d/%m/%Y')
     
     # For testing purposes (will need to be changed)
-    image = StringField('Image', validators=[InputRequired('Image is required')])
-    seller = StringField('Seller', validators=[InputRequired('Seller alias is required')])
+    image = StringField('Image URL', validators=[InputRequired('Image is required')])
 
     description = TextAreaField('Description', validators=[InputRequired('Description is required'), Length(min=10, max=300, message='Description is too short or too long')])
 

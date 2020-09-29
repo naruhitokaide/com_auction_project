@@ -18,21 +18,19 @@ class Listing(db.Model):
     __tablename__ = 'listings'
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String(80), nullable = False)
-    starting_bid = db.Column(db.Integer, nullable = False)
-    current_bid = db.Column(db.String(5), nullable = False)
-    total_bids = db.Column(db.String(5), nullable = False)
+    starting_bid = db.Column(db.Float, nullable = False)
+    current_bid = db.Column(db.Float, nullable = False)
+    total_bids = db.Column(db.Integer, nullable = False)
     brand = db.Column(db.String(20), nullable = False)
     cpu = db.Column(db.String(10), nullable = False)
-    ram_gb = db.Column(db.Integer, nullable = False)
-    storage_gb = db.Column(db.Integer, nullable = False)
+    ram_gb = db.Column(db.String(10), nullable = False)
+    storage_gb = db.Column(db.String(10), nullable = False)
     description = db.Column(db.String(200), nullable = False)
     condition = db.Column(db.String(10), nullable = False)
     status = db.Column(db.String(10), nullable = False)
     image_url = db.Column(db.String(400), nullable = False)
 
-    # Testing end_date with datetime, will have to change later
-    end_date = db.Column(db.DateTime, default = datetime.now())
-    seller = db.Column(db.String(80), nullable = False)
+    end_date = db.Column(db.DateTime, nullable = False)
 
     def set_review(self, review):
         self.reviews.append(review)

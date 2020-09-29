@@ -17,6 +17,29 @@ def createlisting():
   form = ListingForm()
 
   if form.validate_on_submit():
+    # Write data to database
+    listing = Listing()
+    
+    listing.title = form.title.data
+    listing.starting_bid = form.starting_bid.data
+    listing.current_bid = form.starting_bid.data
+    listing.total_bids = 0
+    listing.brand = form.brand.data
+    listing.cpu =  form.cpu.data
+    listing.ram_gb = form.ram.data
+    listing.storage_gb = form.storage.data
+    listing.condition = form.condition.data
+    listing.end_date = form.end_date.data
+    listing.status = 'Active'
+    listing.description = form.description.data
+    listing.image_url = form.image.data
+
+    # Add object to db session
+    db.session.add(listing)
+
+    # Commit data to database
+    db.session.commit() 
+
     print('form is valid')
     return redirect(url_for('listing.createlisting'))
   else:
