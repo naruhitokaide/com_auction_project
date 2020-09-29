@@ -34,8 +34,6 @@ class Listing(db.Model):
     end_date = db.Column(db.DateTime, default = datetime.now())
     seller = db.Column(db.String(80), nullable = False)
 
-    reviews = db.relationship('Review', backref = 'listing')
-
     def set_review(self, review):
         self.reviews.append(review)
 
