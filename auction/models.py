@@ -27,7 +27,6 @@ class Listing(db.Model):
     condition = db.Column(db.String(10), nullable = False)
     status = db.Column(db.String(10), nullable = False)
     image_url = db.Column(db.String(400), nullable = False)
-
     end_date = db.Column(db.DateTime, nullable = False)
 
     def set_review(self, review):
