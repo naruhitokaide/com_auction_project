@@ -6,13 +6,12 @@ class User(db.Model):
     __tablename__ = 'users' 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), index=True, unique=True, nullable=False)
-    emailid = db.Column(db.String(100), index=True, nullable=False)
-    contactnum = db.Column(db.String(15), index=True, nullable=False)
+    email_id = db.Column(db.String(100), index=True, nullable=False)
+    contact_num = db.Column(db.String(15), index=True, nullable=False)
     address = db.Column(db.String(100), index=True, nullable=False)
     password_hash = db.Column(db.String(255), nullable=False)
     
     reviews = db.relationship('Review', backref = 'user')
-
 
 
 class Listing(db.Model): 
@@ -68,7 +67,6 @@ class Review(db.Model):
         debug_string.format(self.user, self.title, self.feedback)
         return debug_string
     
-
     # def __init__ (self, user, title, feedback):
     #     self.user = user
     #     self.title = title
