@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, session, url_for, redirect
 from .models import Listing, Review
 from auction.forms import ListingForm, ReviewForm
+from . import db
 
 # Create listing blueprint
 listingbp = Blueprint('listing', __name__, url_prefix='/listings')

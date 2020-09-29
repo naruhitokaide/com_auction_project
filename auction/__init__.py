@@ -1,15 +1,27 @@
 from flask import Flask
-from . import views, listings, auth
 from flask_bootstrap import Bootstrap
+from flask_sqlalchemy import SQLAlchemy
+
+
+db = SQLAlchemy()
 
 def create_app():
     print(__name__)
     app = Flask(__name__)
-    
+
+    # Set app configuration data
+    app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///auction.sqlite'
+    db.init_app(app)
+
+    # Import blueprints
+    from auction.views import mainbp
+    from auction.listings import listingbp
+    from auction.auth import authenticationbp
+
     # Register blueprints
-    app.register_blueprint(views.mainbp)
-    app.register_blueprint(listings.listingbp)
-    app.register_blueprint(auth.authenticationbp)
+    app.register_blueprint(mainbp)
+    app.register_blueprint(listingbp)
+    app.register_blueprint(authenticationbp)
 
     # Initialise bootstrap 
     bootstrap = Bootstrap(app)
