@@ -13,10 +13,11 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///auction.sqlite'
     db.init_app(app)
 
-    # Import blueprints
+    # Import blueprints and models
     from auction.views import mainbp
     from auction.listings import listingbp
     from auction.auth import authenticationbp
+    from auction.models import User
 
     # Register blueprints
     app.register_blueprint(mainbp)

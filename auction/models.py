@@ -1,3 +1,17 @@
+from . import db
+
+
+class User(db.Model):
+    __tablename__ = 'users' 
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), index=True, unique=True, nullable=False)
+    emailid = db.Column(db.String(100), index=True, nullable=False)
+    password_hash = db.Column(db.String(255), nullable=False)
+
+# TODO 
+# The rest of these below will have to be changed to use SQLAlchemy
+# Delete 'auction.sqlite' and rerun 'create_database.py' once classes are setup
+
 class Listing: 
     def __init__(self, title, starting_bid, description, status, condition, image, end_date, seller):
         self.title = title
