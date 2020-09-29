@@ -56,7 +56,7 @@ class Review(db.Model):
 
 
 class WatchListItem(db.Model):
-    __tablename__ = 'watchlistitem'
+    __tablename__ = 'watchlistitems'
     id = db.Column(db.Integer, primary_key=True)
     date_added = db.Column(db.DateTime, default = datetime.now())
 
