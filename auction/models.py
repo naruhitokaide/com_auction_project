@@ -19,14 +19,14 @@ class Listing(db.Model):
     __tablename__ = 'listings'
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String(80), nullable = False)
-    starting_bid = db.Column(db.Integer(5), nullable = False)
+    starting_bid = db.Column(db.Integer, nullable = False)
     current_bid = db.Column(db.String(5), nullable = False)
     total_bids = db.Column(db.String(5), nullable = False)
     description = db.Column(db.String(200), nullable = False)
     condition = db.Column(db.String(10), nullable = False)
     status = db.Column(db.String(10), nullable = False)
     image = db.Column(db.String(400), nullable = False)
-    time_left = db.Column(db.Integer(20), nullable = False)
+    time_left = db.Column(db.Integer, nullable = False)
     seller = db.Column(db.String(80), nullable = False)
 
     reviews = db.relationship('Review', backref = 'listing')
