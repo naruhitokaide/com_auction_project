@@ -32,7 +32,7 @@ def create_app():
 
     #initialize the login manager
     login_manager = LoginManager()
-    login_manager.login_view='auth.login'
+    login_manager.login_view='authentication.login'
     login_manager.init_app(app)
     
     from .models import User

@@ -4,6 +4,7 @@ from auction.forms import ListingForm, ReviewForm
 from . import db
 from werkzeug.utils import secure_filename
 import os
+from flask_login import login_required, current_user
 
 
 # Create listing blueprint
@@ -16,6 +17,7 @@ def showlisting(id):
     return render_template('listings/showlisting.html', listing=listing, form=review_form_instance)
 
 @listingbp.route('/create', methods=['GET', 'POST'])
+@login_required #login is required for creating a listing
 def createlisting():
   form = ListingForm()
 
@@ -39,6 +41,7 @@ def createlisting():
     listing.status = 'Active'
     listing.description = form.description.data
     listing.image_url = db_file_path
+    listing.user = current_user
 
     # Add object to db session
     db.session.add(listing)

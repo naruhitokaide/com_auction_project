@@ -2,7 +2,7 @@ from flask import Blueprint, session, redirect, url_for, render_template, flash
 from auction.forms import LoginForm, RegisterForm
 from werkzeug.security import generate_password_hash,check_password_hash
 from .models import User
-from flask_login import login_user, login_required,logout_user
+from flask_login import login_user, login_required, logout_user
 from . import db
 
 
