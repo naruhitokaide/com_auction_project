@@ -1,7 +1,8 @@
 from . import db
 from datetime import datetime, date
+from flask_login import UserMixin
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     __tablename__ = 'users' 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), index=True, unique=True, nullable=False)
@@ -9,7 +10,6 @@ class User(db.Model):
     contact_num = db.Column(db.String(15), index=True, nullable=False)
     address = db.Column(db.String(100), index=True, nullable=False)
     password_hash = db.Column(db.String(255), nullable=False)
-    
     reviews = db.relationship('Review', backref = 'user')
 
 class Listing(db.Model): 

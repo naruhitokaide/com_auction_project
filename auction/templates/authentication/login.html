@@ -13,6 +13,11 @@
       <img class="img-fluid" src="{{ url_for('static', filename='/img/login.svg')}}">
     </div>
   </div>
-  
+
+  {% if heading|lower =='login' %}
+  <div class="col-md-4 mb-5 ml-5">
+      <p>New user? <a href="{{ url_for('authentication.register') }}">Click here to register</a>.</p>
+  </div>
+  {% endif %}
 </div>
 {% endblock %}
