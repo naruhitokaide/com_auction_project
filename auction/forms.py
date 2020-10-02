@@ -3,6 +3,7 @@ from wtforms.fields import TextAreaField,SubmitField, StringField, PasswordField
 from wtforms.validators import InputRequired, Length, Email, EqualTo, NumberRange
 from flask_wtf.file import FileRequired, FileField, FileAllowed
 
+
 class LoginForm(FlaskForm):
     user_name = StringField('User Name', validators=[InputRequired('User Name is required')])
     password = PasswordField('Password', validators=[InputRequired('Password is required')])
@@ -36,9 +37,7 @@ class ListingForm(FlaskForm):
     ALLOWED_FILE = {'png', 'jpg', 'JPG', 'PNG', 'jpeg'}
     image_url = FileField('Image', validators=[
         FileRequired(message='Image can not be empty'), FileAllowed(ALLOWED_FILE, message='Only supports png, jpg, JPG, PNG')])
-
     description = TextAreaField('Description', validators=[InputRequired('Description is required'), Length(min=10, max=300, message='Description is too short or too long')])
-
     submit = SubmitField('Post Listing')
 
 class ReviewForm(FlaskForm):

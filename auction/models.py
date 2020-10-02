@@ -55,5 +55,3 @@ class WatchListItem(db.Model):
     # Foreign Keys
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     listing_id = db.Column(db.Integer, db.ForeignKey('listings.id'))
-
-
