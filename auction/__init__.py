@@ -12,7 +12,6 @@ def create_app():
 
     # Set app configuration data
     # app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///auction.sqlite'
-    app.config[SQLALCHEMY_DATABASE_URI] = os.environ['sqlite:///auction.sqlite']
     db.init_app(app)
     UPLOAD_FOLDER = '/static/image'
     app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
