@@ -11,6 +11,7 @@ def create_app():
     app = Flask(__name__)
 
     # Set app configuration data
+    os.environ['DATABASE_URL'] = 'sqlite:///auction.sqlite'
     # app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///auction.sqlite'
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
     db.init_app(app)
