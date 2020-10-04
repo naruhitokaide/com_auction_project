@@ -2,7 +2,7 @@ from flask import Flask
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-import os 
+from os import environ
 
 db = SQLAlchemy()
 
@@ -11,9 +11,8 @@ def create_app():
     app = Flask(__name__)
 
     # Set app configuration data
-    os.environ['DATABASE_URL'] = 'sqlite:///auction.sqlite'
-    # app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///auction.sqlite'
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+    # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///auction.sqlite'
+    app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DATABASE_URL') or 'sqlite:///auction.sqlite'
     db.init_app(app)
     UPLOAD_FOLDER = '/static/image'
     app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
