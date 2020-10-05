@@ -28,6 +28,7 @@ class Listing(db.Model):
     status = db.Column(db.String(10), nullable = False)
     image_url = db.Column(db.String(400), nullable = False)
     end_date = db.Column(db.DateTime, nullable = False)
+    seller = db.Column(db.String(15), nullable = False)
 
     def set_review(self, review):
         self.reviews.append(review)

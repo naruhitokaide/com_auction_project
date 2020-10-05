@@ -41,7 +41,7 @@ def createlisting():
     listing.status = 'Active'
     listing.description = form.description.data
     listing.image_url = db_file_path
-    listing.user = current_user
+    listing.seller = current_user.name
 
     # Add object to db session
     db.session.add(listing)
