@@ -63,6 +63,8 @@ def register():
 
 
 @authenticationbp.route('/logout')
+@login_required
 def logout():
-    session.clear()
+    logout_user()
+    flash("You have successfully logged out.")
     return render_template('authentication/logout.html')
