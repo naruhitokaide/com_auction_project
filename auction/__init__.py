@@ -9,6 +9,8 @@ db = SQLAlchemy()
 def create_app():
     print(__name__)
     app = Flask(__name__)
+    app.secret_key='iab207assesment3'
+
 
     # Set app configuration data
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///auction.sqlite'
