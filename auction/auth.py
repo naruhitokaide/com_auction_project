@@ -21,10 +21,10 @@ def login():
 
         #If user is not found within the database
         if u1 is None:
-            error = 'Incorrect User Name'
+            error = 'Incorrect UserName or Password'
         #Check the password
         elif not check_password_hash(u1.password_hash, password): 
-            error = 'Incorrect Password'
+            error = 'Incorrect UserName or Password'
         if error is None:
             login_user(u1)
             return redirect(url_for('main.index'))
