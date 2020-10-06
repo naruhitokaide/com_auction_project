@@ -1,111 +1,112 @@
 {% extends 'base.html' %}
 
-  {% block header %}
-    <div class="container jumbotron mt-4" style>
-      <div class="row align-items-center">
-        <div class="col-md-7 text-center text-md-left">
-          <h1>Auction your used computers</h1>
-          <p>Techprowl hosts auctions for a range of different brands of computers, both desktops and laptops from all
-            around Australia.</p>
-          <a class="btn btn-blue btn-lg" href="{{url_for('listing.createlisting')}}" role="button">Create Listing</a>
-        </div>
-
-        <div class="col-md-5">
-          <img class="img-fluid" src="{{url_for('static', filename='img/shopphoto.svg')}}">
-        </div>
-      </div>
-    </div>
-  {% endblock %}
-
-  {% block content %}
-  <main>
-    <!-- Top Bids -->
-    <div class="container text-center">
-      <h2 class="responsive-heading">🔥 Hot Auctions Right Now 🔥</h2>
+{% block header %}
+<div class="container jumbotron mt-4" style>
+  <div class="row align-items-center">
+    <div class="col-md-7 text-center text-md-left">
+      <h1>Auction your used computers</h1>
+      <p>Techprowl hosts auctions for a range of different brands of computers, both desktops and laptops from all
+        around Australia.</p>
+      <a class="btn btn-blue btn-lg" href="{{url_for('listing.createlisting')}}" role="button">Create Listing</a>
     </div>
 
-    <!-- Category Menu-->
+    <div class="col-md-5">
+      <img class="img-fluid" src="{{url_for('static', filename='img/shopphoto.svg')}}">
+    </div>
+  </div>
+</div>
+{% endblock %}
 
-    <nav class="container navbar navbar-expand-lg navbar-light mb-2 justify-content-center">
-      <ul class="navbar-nav category-menu">
-        <li class="nav-item dropdown">
-          <a class="dropdown-toggle ml-4" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Brand
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Apple</a>
-            <a class="dropdown-item" href="#">Lenovo</a>
-            <a class="dropdown-item" href="#">Dell</a>
-            <a class="dropdown-item" href="#">HP</a>
-            <a class="dropdown-item" href="#">Microsoft</a>
-            <a class="dropdown-item" href="#">Acer</a>
-            <a class="dropdown-item" href="#">Custom</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="dropdown-toggle ml-4" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            CPU
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Core i7</a>
-            <a class="dropdown-item" href="#">Core i5</a>
-            <a class="dropdown-item" href="#">Core i3</a>
-            <a class="dropdown-item" href="#">Pentium</a>
-            <a class="dropdown-item" href="#">Ryzen 7</a>
-            <a class="dropdown-item" href="#">Ryzen 5</a>
-            <a class="dropdown-item" href="#">Ryzen 3</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="dropdown-toggle ml-4" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            RAM
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">32GB</a>
-            <a class="dropdown-item" href="#">16GB</a>
-            <a class="dropdown-item" href="#">8GB</a>
-            <a class="dropdown-item" href="#">4GB</a>
+{% block content %}
+<main>
+  <!-- Top Bids -->
+  <div class="container text-center">
+    <h2 class="responsive-heading">🔥 Hot Auctions Right Now 🔥</h2>
+  </div>
 
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="dropdown-toggle ml-4" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Storage
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">1TB+</a>
-            <a class="dropdown-item" href="#">512GB</a>
-            <a class="dropdown-item" href="#">256GB</a>
-            <a class="dropdown-item" href="#">128GB</a>
-            <a class="dropdown-item" href="#">64GB</a>
-          </div>
-        </li>
-      </ul>
-    </nav>
+  <!-- Category Menu-->
 
-    <!-- First Row -->
-    <section>
-      <div class="container">
-        <div class="row mb-4">
+  <nav class="container navbar navbar-expand-lg navbar-light mb-2 justify-content-center">
+    <ul class="navbar-nav category-menu">
+      <li class="nav-item dropdown">
+        <a class="dropdown-toggle ml-4" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Brand
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Apple</a>
+          <a class="dropdown-item" href="#">Lenovo</a>
+          <a class="dropdown-item" href="#">Dell</a>
+          <a class="dropdown-item" href="#">HP</a>
+          <a class="dropdown-item" href="#">Microsoft</a>
+          <a class="dropdown-item" href="#">Acer</a>
+          <a class="dropdown-item" href="#">Custom</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="dropdown-toggle ml-4" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          CPU
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Core i7</a>
+          <a class="dropdown-item" href="#">Core i5</a>
+          <a class="dropdown-item" href="#">Core i3</a>
+          <a class="dropdown-item" href="#">Pentium</a>
+          <a class="dropdown-item" href="#">Ryzen 7</a>
+          <a class="dropdown-item" href="#">Ryzen 5</a>
+          <a class="dropdown-item" href="#">Ryzen 3</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="dropdown-toggle ml-4" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          RAM
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">32GB</a>
+          <a class="dropdown-item" href="#">16GB</a>
+          <a class="dropdown-item" href="#">8GB</a>
+          <a class="dropdown-item" href="#">4GB</a>
+
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="dropdown-toggle ml-4" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Storage
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">1TB+</a>
+          <a class="dropdown-item" href="#">512GB</a>
+          <a class="dropdown-item" href="#">256GB</a>
+          <a class="dropdown-item" href="#">128GB</a>
+          <a class="dropdown-item" href="#">64GB</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- First Row -->
+  <section>
+    <div class="container">
+      <div class="row mb-4">
+        <div class="card-deck mb-3">
+          {% for listing in listings %}
           <div class="col-md-6 col-lg-3">
-            {% for listing in listings %}
+
             <div class="card shadow-sm border-light mb-4 listing-card">
               <a href="{{url_for('listing.showlisting', id=listing.id)}}" class="position-relative">
-                <img
-                  src="{{ listing.image_url }}"
-                  class="card-img-top" alt="image"> </a>
+                <img src="{{ listing.image_url }}" class="card-img-top" alt="image"> </a>
               <div class="card-body">
-                <a href="itemdetails.html">
+                <a href="{{url_for('listing.showlisting', id=listing.id)}}">
                   <h5 class="font-weight-normal">{{ listing.title }}</h5>
                 </a>
 
                 <div class="d-block">
                   <span class="text-muted font-small d-block mb-2"><i
-                      class="fas fa-sort-numeric-up-alt orange-icon"></i> Total Bids: <strong>{{ listing.total_bids }}</strong></span>
+                      class="fas fa-sort-numeric-up-alt orange-icon"></i> Total Bids:
+                    <strong>{{ listing.total_bids }}</strong></span>
                 </div>
 
                 <div class="d-block">
@@ -121,135 +122,137 @@
                 <a class="btn btn-blue btn-block" href="#" role="button"><i class="fas fa-eye"></i> Watch List</a>
               </div>
             </div>
-            {% endfor %}
           </div>
-          
-
-        <!-- Ending Soon Items -->
-
-        <div class="container text-center mb-5 mt-5">
-          <h2 class="responsive-heading">⏰ Ending Soon ⏰</h2>
+          {% endfor %}
         </div>
 
-        <!-- Third Row -->
+      </div>
 
-        <div class="row">
-          <div class="col-md-6 col-lg-3">
-            <div class="card shadow-sm border-light mb-4 listing-card">
-              <a href="itemdetails.html" class="position-relative">
-                <img
-                  src="https://images.unsplash.com/photo-1570485071395-29b575ea3b4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-                  class="card-img-top" alt="image"> </a>
-              <div class="card-body">
-                <a href="itemdetails.html">
-                  <h5 class="font-weight-normal">Acer Desktop</h5>
-                </a>
+      <!-- Ending Soon Items -->
 
-                <div class="d-block">
-                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-tags orange-icon"></i> Current Bid:
-                    <strong>$300</strong></span>
-                </div>
+      <div class="container text-center mb-5 mt-5">
+        <h2 class="responsive-heading">⏰ Ending Soon ⏰</h2>
+      </div>
 
-                <div class="d-block">
-                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-clock orange-icon"></i> Time Left:
-                    <strong>DD:HH:MM</strong></span>
-                </div>
+      <!-- Third Row -->
 
-                <a class="btn btn-blue btn-block" href="#" role="button"><i class="fas fa-eye"></i> Watch List</a>
+      <div class="row">
+        <div class="col-md-6 col-lg-3">
+          <div class="card shadow-sm border-light mb-4 listing-card">
+            <a href="itemdetails.html" class="position-relative">
+              <img
+                src="https://images.unsplash.com/photo-1570485071395-29b575ea3b4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+                class="card-img-top" alt="image"> </a>
+            <div class="card-body">
+              <a href="itemdetails.html">
+                <h5 class="font-weight-normal">Acer Desktop</h5>
+              </a>
+
+              <div class="d-block">
+                <span class="text-muted font-small d-block mb-2"><i class="fas fa-tags orange-icon"></i> Current Bid:
+                  <strong>$300</strong></span>
               </div>
+
+              <div class="d-block">
+                <span class="text-muted font-small d-block mb-2"><i class="fas fa-clock orange-icon"></i> Time Left:
+                  <strong>DD:HH:MM</strong></span>
+              </div>
+
+              <a class="btn btn-blue btn-block" href="#" role="button"><i class="fas fa-eye"></i> Watch List</a>
             </div>
           </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="card shadow-sm border-light mb-4 listing-card">
-              <a href="itemdetails.html" class="position-relative">
-                <img
-                  src="https://images.unsplash.com/photo-1566998499249-d5e86aaab935?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
-                  class="card-img-top" alt="image"> </a>
-              <div class="card-body">
-                <a href="itemdetails.html">
-                  <h5 class="font-weight-normal">Macbook Pro 13</h5>
-                </a>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card shadow-sm border-light mb-4 listing-card">
+            <a href="itemdetails.html" class="position-relative">
+              <img
+                src="https://images.unsplash.com/photo-1566998499249-d5e86aaab935?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
+                class="card-img-top" alt="image"> </a>
+            <div class="card-body">
+              <a href="itemdetails.html">
+                <h5 class="font-weight-normal">Macbook Pro 13</h5>
+              </a>
 
-                <div class="d-block">
-                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-tags orange-icon"></i> Current Bid:
-                    <strong>$900</strong></span>
-                </div>
-
-                <div class="d-block">
-                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-clock orange-icon"></i> Time Left:
-                    <strong>DD:HH:MM</strong></span>
-                </div>
-
-                <a class="btn btn-blue btn-block" href="#" role="button"><i class="fas fa-eye"></i> Watch List</a>
+              <div class="d-block">
+                <span class="text-muted font-small d-block mb-2"><i class="fas fa-tags orange-icon"></i> Current Bid:
+                  <strong>$900</strong></span>
               </div>
+
+              <div class="d-block">
+                <span class="text-muted font-small d-block mb-2"><i class="fas fa-clock orange-icon"></i> Time Left:
+                  <strong>DD:HH:MM</strong></span>
+              </div>
+
+              <a class="btn btn-blue btn-block" href="#" role="button"><i class="fas fa-eye"></i> Watch List</a>
             </div>
           </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="card shadow-sm border-light mb-4 listing-card">
-              <a href="itemdetails.html" class="position-relative">
-                <img
-                  src="https://images.unsplash.com/photo-1579493593963-2ca325e3703e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                  class="card-img-top" alt="image"> </a>
-              <div class="card-body">
-                <a href="itemdetails.html">
-                  <h5 class="font-weight-normal">Custom Desktop</h5>
-                </a>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card shadow-sm border-light mb-4 listing-card">
+            <a href="itemdetails.html" class="position-relative">
+              <img
+                src="https://images.unsplash.com/photo-1579493593963-2ca325e3703e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                class="card-img-top" alt="image"> </a>
+            <div class="card-body">
+              <a href="itemdetails.html">
+                <h5 class="font-weight-normal">Custom Desktop</h5>
+              </a>
 
-                <div class="d-block">
-                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-tags orange-icon"></i> Current Bid:
-                    <strong>$750</strong></span>
-                </div>
-
-                <div class="d-block">
-                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-clock orange-icon"></i> Time Left:
-                    <strong>DD:HH:MM</strong></span>
-                </div>
-
-                <a class="btn btn-blue btn-block" href="#" role="button"><i class="fas fa-eye"></i> Watch List</a>
+              <div class="d-block">
+                <span class="text-muted font-small d-block mb-2"><i class="fas fa-tags orange-icon"></i> Current Bid:
+                  <strong>$750</strong></span>
               </div>
+
+              <div class="d-block">
+                <span class="text-muted font-small d-block mb-2"><i class="fas fa-clock orange-icon"></i> Time Left:
+                  <strong>DD:HH:MM</strong></span>
+              </div>
+
+              <a class="btn btn-blue btn-block" href="#" role="button"><i class="fas fa-eye"></i> Watch List</a>
             </div>
           </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="card shadow-sm border-light mb-4 listing-card">
-              <a href="itemdetails.html" class="position-relative">
-                <img
-                  src="https://images.unsplash.com/photo-1593642532973-d31b6557fa68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
-                  class="card-img-top" alt="image"> </a>
-              <div class="card-body">
-                <a href="itemdetails.html">
-                  <h5 class="font-weight-normal">Dell XPS 13</h5>
-                </a>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card shadow-sm border-light mb-4 listing-card">
+            <a href="itemdetails.html" class="position-relative">
+              <img
+                src="https://images.unsplash.com/photo-1593642532973-d31b6557fa68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
+                class="card-img-top" alt="image"> </a>
+            <div class="card-body">
+              <a href="itemdetails.html">
+                <h5 class="font-weight-normal">Dell XPS 13</h5>
+              </a>
 
-                <div class="d-block">
-                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-tags orange-icon"></i> Current Bid:
-                    <strong>$800</strong></span>
-                </div>
-
-                <div class="d-block">
-                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-clock orange-icon"></i> Time Left:
-                    <strong>DD:HH:MM</strong></span>
-                </div>
-
-                <a class="btn btn-blue btn-block" href="#" role="button"><i class="fas fa-eye"></i> Watch List</a>
+              <div class="d-block">
+                <span class="text-muted font-small d-block mb-2"><i class="fas fa-tags orange-icon"></i> Current Bid:
+                  <strong>$800</strong></span>
               </div>
+
+              <div class="d-block">
+                <span class="text-muted font-small d-block mb-2"><i class="fas fa-clock orange-icon"></i> Time Left:
+                  <strong>DD:HH:MM</strong></span>
+              </div>
+
+              <a class="btn btn-blue btn-block" href="#" role="button"><i class="fas fa-eye"></i> Watch List</a>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <nav class="container">
-      <ul class="pagination justify-content-end">
-        <li class="page-item disabled">
-          <a class="page-link" href="#" tabindex="-1">Previous</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-          <a class="page-link" href="#">Next</a>
-        </li>
-      </ul>
-    </nav>
-  </main>
-  {% endblock %}
+  <nav class="container">
+    <ul class="pagination justify-content-end">
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1">Previous</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+</main>
+{% endblock %}
