@@ -64,7 +64,3 @@ def check_upload_file(form):
   db_upload_path = '/static/img/'+ secure_filename(filename)
   fp.save(upload_path)
   return db_upload_path
-
-
-
-
