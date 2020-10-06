@@ -2,6 +2,17 @@
 
 {% block content %}
 <main style="margin-top: 100px;">
-<h1>My Listings</h1>
+    <div class="container jumbotron mt-4 pt-3 pb-3" style>
+        <div class="row align-items-center">
+          <div class="col-md-8 text-center text-md-left">
+            <h1 class="responsive-heading">My Listings</h1>
+            <p>Manage all your listings in one place!</p>
+          </div>
+    
+          <div class="col-md-4">
+            <img class="img-fluid" src="{{url_for('static', filename='img/mylistings2.svg')}}">
+          </div>
+        </div>
+      </div>
 </main>
 {% endblock %}
