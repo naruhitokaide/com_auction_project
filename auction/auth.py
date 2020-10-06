@@ -21,15 +21,15 @@ def login():
 
         #If user is not found within the database
         if u1 is None:
-            error = 'Incorrect UserName or Password'
+            error = 'Incorrect Username or Password'
         #Check the password
         elif not check_password_hash(u1.password_hash, password): 
-            error = 'Incorrect UserName or Password'
+            error = 'Incorrect Username or Password'
         if error is None:
             login_user(u1)
             return redirect(url_for('main.index'))
         else:
-            flash(error)
+            flash(error, 'danger')
     return render_template('authentication/login.html', form=login_form_instance, heading = 'Login')
 
 
@@ -48,7 +48,7 @@ def register():
         #Check if the user exists
         u1 = User.query.filter_by(name=uname).first()
         if u1:
-            flash('This userame already exists, please attempt login')
+            flash('This userame already exists, please attempt login!', 'danger')
             return redirect(url_for('authentication.login'))
 
         pwd_hash = generate_password_hash(pwd)
@@ -66,5 +66,5 @@ def register():
 @login_required
 def logout():
     logout_user()
-    flash("You have successfully logged out.")
-    return render_template('authentication/logout.html')
+    flash("You have successfully logged out!", 'success')
+    return render_template('authentication/login.html')

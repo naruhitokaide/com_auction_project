@@ -7,20 +7,19 @@
     <div class="col-md-6">
       <h2>{{heading}}</h2>
 
-      {% with messages = get_flashed_messages() %}
+      {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
-      <!-- check if there are any messages -->
 
+      <!-- check if there are any messages -->
       <div class="row mt-3 mb-3">
         <div class="col-md-12">
-          {% for message in messages %}
+          {% for category, message in messages %}
           <!--loop through the messages-->
-          <div class="alert alert-info">{{ message }}</div>
+          <div class="alert alert-{{category}}">{{ message }}</div>
           <!--display as alert-->
           {% endfor %}
         </div>
       </div>
-
       {% endif %}
       {% endwith %}
 
