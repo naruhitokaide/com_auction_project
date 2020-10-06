@@ -43,6 +43,7 @@ def createlisting():
     listing.image_url = db_file_path
     listing.seller = current_user.name
 
+
     # Add object to db session
     db.session.add(listing)
 
