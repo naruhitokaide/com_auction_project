@@ -40,21 +40,12 @@
 
             <!-- Right Side -->
             <div class="col-lg-9 d-flex align-items-center justify-content-center border-left">
-
               <div class="input-group px-3">
                 <input type="text" class="form-control" placeholder="Bid Amount..">
                 <div class="input-group-append">
                   <button class="btn btn-blue" type="button">Place Bid</button>
                 </div>
               </div>
-
-            </div>
-          </div>
-
-          <div class="row card bg-light mt-3 text-muted">
-            <div class="card-header">Description</div>
-            <div class="card-body pb-0">
-              <p>{{listing.description}}</p>
             </div>
           </div>
         </div>
@@ -67,46 +58,46 @@
             <div class="card-header">
               <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
-                  <a href="#itemdetails" class="nav-link active" role="tab" data-toggle="tab">Item Details</a>
+                  <a href="#itemdescription" class="nav-link active" role="tab" data-toggle="tab">Description</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#itemdetails" class="nav-link" role="tab" data-toggle="tab">Item Details</a>
                 </li>
                 <li class="nav-item">
                   <a href="#reviews" class="nav-link" role="tab" data-toggle="tab">Reviews</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#reviewsModal" data-toggle="modal" data-target="#reviewsModal">Post
-                    Review</a>
+                  <a class="nav-link" href="#reviewsModal" data-toggle="modal" data-target="#reviewsModal">Post Review</a>
                 </li>
               </ul>
             </div>
 
             <div class="tab-content">
-              <div role="tabpanel1" class="card-body tab-pane text-left active" id="itemdetails">
+              <div role="tabpanel1" class="card-body tab-pane text-left active" id="itemdescription">
+                <p>{{listing.description}}</p>
+              </div>
+                
+              <div role="tabpanel1" class="card-body tab-pane text-left" id="itemdetails">
                 <p>{{listing.cpu}} processor</p>
                 <p>{{listing.ram_gb}} RAM</p>
                 <p>{{listing.storage_gb}} storage</p>
               </div>
   
               <div role="tabpanel1" class="card-body tab-pane text-left" id="reviews">
-                {% for review in listing.reviews %} 
+                {% for review in listing.reviews %}
                 <div class="mb-4 border-bottom">
-                  <i class="fas fa-star orange-icon"></i>
-                  <i class="fas fa-star orange-icon"></i>
-                  <i class="fas fa-star orange-icon"></i>
-                  <i class="fas fa-star orange-icon"></i>
-                  <i class="far fa-star orange-icon"></i>
+                  <b>{{review.users_id}}<span class="ml-2 text-muted">{{review.created_at}}</span></b>  
                   <h5 class="review-title mt-2">{{review.title}}</h5>
-                  <p>{{review.user}}</p>
                   <p class="review-description">{{review.feedback}}</p>
                 </div>
                 {% endfor %}
               </div>
             </div>
 
-            
 
             <!--Modal for posting reviews-->
             <div class="modal fade" id="reviewsModal" tabindex="-1" role="dialog"
-              aria-labelledby="reviewModal aria-hidden=" true">
+              aria-labelledby="reviewModal aria-hidden=" true>
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -116,11 +107,8 @@
                     </button>
                   </div>
                   <div class="modal-body text-left">
-                    
-                    {{wtf.quick_form(form, "/listings/{0}/review".format(1))}}
-
+                    {{wtf.quick_form(form, "/listings/{0}/review".format(listing.id))}}
                   </div>
-                  
                 </div>
               </div>
             </div>

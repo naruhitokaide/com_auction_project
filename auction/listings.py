@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, session, url_for, redirect
+from flask import Blueprint, render_template, request, session, url_for, redirect, flash
 from .models import Listing, Review
 from auction.forms import ListingForm, ReviewForm
 from . import db
@@ -69,3 +69,18 @@ def check_upload_file(form):
 @listingbp.route('/mylistings', methods=['GET', 'POST'])
 def mylistings():
   return render_template('listings/mylistings.html')
+
+
+@listingbp.route('/<listing>/review', methods = ['GET', 'POST'])  
+@login_required
+def postReview(listing):
+    form = ReviewForm()
+    listing_obj = Listing.query.filter_by(id=listing).first()
+
+    if form.validate_on_submit():  
+      review = Review(title=form.title.data, feedback=form.feedback.data,  
+                        listing=listing_obj.id, user=current_user)
+      db.session.add(review)
+      db.session.commit()
+      flash('Thank you for submitting a review of this item', 'success') 
+    return redirect(url_for('listing.showlisting', id=listing))
