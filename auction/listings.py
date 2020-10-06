@@ -65,3 +65,8 @@ def check_upload_file(form):
   db_upload_path = '/static/img/'+ secure_filename(filename)
   fp.save(upload_path)
   return db_upload_path
+
+
+@listingbp.route('/mylistings', methods=['GET', 'POST'])
+def mylistings():
+  return render_template('listings/mylistings.html')
