@@ -2,16 +2,25 @@
 
 {% import "bootstrap/wtf.html" as wtf %}
 {% block content %}
-<div class="container">
-    <div class="row mt-5">
-      <div class="col-md-12">
-
-        <h1>Create New Listing</h1>
+<div class="main">
+  <div class="container jumbotron mt-4 pt-3 pb-3" style>
+    <div class="row align-items-center">
+      <div class="col-md-8 text-center text-md-left">
+        <h1 class="responsive-heading">Create New Listing</h1>
         <p>List your computers with us for a faster sale, and a better offer!</p>
+      </div>
 
-        {{wtf.quick_form(form)}}
-        
+      <div class="col-md-4">
+        <img class="img-fluid" src="{{url_for('static', filename='img/createlisting.svg')}}">
       </div>
     </div>
   </div>
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-md-12">
+        {{wtf.quick_form(form)}}
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
