@@ -24,7 +24,7 @@ def login():
             error = 'Incorrect Username or Password'
         #Check the password
         elif not check_password_hash(u1.password_hash, password): 
-            error = 'Incorrect Username or Password'
+            error = 'Incorrect Userame or Password'
         if error is None:
             login_user(u1)
             return redirect(url_for('main.index'))
@@ -67,4 +67,4 @@ def register():
 def logout():
     logout_user()
     flash("You have successfully logged out!", 'success')
-    return render_template('authentication/login.html')
+    return redirect(url_for('authentication.login'))
