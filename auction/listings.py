@@ -16,6 +16,7 @@ def showlisting(id):
     review_form_instance = ReviewForm()
     return render_template('listings/showlisting.html', listing=listing, form=review_form_instance)
 
+
 @listingbp.route('/create', methods=['GET', 'POST'])
 @login_required #login is required for creating a listing
 def createlisting():
@@ -71,9 +72,15 @@ def mylistings():
   return render_template('listings/mylistings.html')
 
 
+@listingbp.route('/watchlist', methods=['GET', 'POST'])
+@login_required
+def watchlist():
+  return render_template('listings/watchlist.html')
+
+
 @listingbp.route('/<listing>/review', methods = ['GET', 'POST'])  
 @login_required
-def postReview(listing):
+def review(listing):
     form = ReviewForm()
     listing_obj = Listing.query.filter_by(id=listing).first()
 
