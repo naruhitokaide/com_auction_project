@@ -6,7 +6,7 @@ mainbp = Blueprint('main', __name__)
 
 @mainbp.route('/')
 def index():
-    listings = Listing.query.all()
+    listings = Listing.query.filter_by(status='Active').all()
     return render_template('index.html', listings=listings)
 
 @mainbp.route('/search')
