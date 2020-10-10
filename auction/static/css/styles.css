@@ -20,8 +20,6 @@ p, a {
     height: 150px;
 }
 
-
-
 /* Button styling */
 
 .btn-sign-up{
@@ -128,6 +126,10 @@ p, a {
 @media (max-width: 768px) {
     .reviews-box {
         padding-left:0;
+    }
+
+    .card-img-top {
+        height: auto;
     }
 }
 
