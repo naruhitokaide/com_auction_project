@@ -24,9 +24,11 @@
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <a href="{{url_for('listing.showlisting', id=listing.id)}}"><h5 class="card-title">{{ listing.title }}</h5></a>
-                <p class="d-block mb-4"><i class="fas fa-check-circle text-success"></i><span class="text-muted">
+                <a href="{{url_for('listing.showlisting', id=listing.id)}}"><h5 class="card-title">{{listing.title}}</h5></a>
+                <p class="d-block mb-2"><i class="fas fa-check-circle text-success"></i><span class="text-muted">
                   Status:</span><strong> {{listing.status}}</strong></p>
+                <p class="d-block mb-2"><i class="fas fa-sort-numeric-up-alt text-muted"></i><span class="text-muted"> Total
+                  Bids:</span><strong> {{listing.total_bids}}</strong></p>
                 <button class="btn btn-primary">See all Bids</button>
                 <button class="btn btn-danger">Close Listing</button>
               </div>
