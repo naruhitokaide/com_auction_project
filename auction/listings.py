@@ -70,7 +70,8 @@ def check_upload_file(form):
 @listingbp.route('/mylistings', methods=['GET', 'POST'])
 @login_required
 def mylistings():
-  return render_template('listings/mylistings.html')
+  listings = Listing.query.filter_by(seller=current_user.name).all()
+  return render_template('listings/mylistings.html', listings=listings)
 
 
 @listingbp.route('/watchlist', methods=['GET', 'POST'])

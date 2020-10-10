@@ -15,7 +15,25 @@
         </div>
     </div>
     <div class="container">
-      <p class="test-text">This is a test</p>
+
+      {% for listing in listings %}
+        <div class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-md-3">
+              <img src="{{listing.image_url}}" class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ listing.title }}</h5>
+                <p class="d-block mb-4"><i class="fas fa-check-circle text-success"></i><span class="text-muted">
+                  Status:</span><strong> {{listing.status}}</strong></p>
+                <button class="btn btn-primary">See all Bids</button>
+                <button class="btn btn-danger">Close Listing</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
     </div>
     
 </main>
