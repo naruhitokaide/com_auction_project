@@ -20,7 +20,13 @@ p, a {
     height: 150px;
 }
 
+
 /* Button styling */
+
+.btn-default {
+    background-color: #3a86ff;
+    color: white;
+}
 
 .btn-sign-up{
     background-color: #ff854b;
