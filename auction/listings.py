@@ -19,6 +19,7 @@ def showlisting(id):
 
 @listingbp.route('/create', methods=['GET', 'POST'])
 @login_required #login is required for creating a listing
+
 def createlisting():
   form = ListingForm()
 

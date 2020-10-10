@@ -86,6 +86,15 @@ p, a {
     transition: transform ease-out 0.3s, -webkit-transform ease-out 0.3s;
 }
 
+
+/* Color for default flash 'alert-message' */
+
+.alert-message {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
 /* Border radius for page navigation on buy screen */
 
 .page-item:first-child .page-link {
