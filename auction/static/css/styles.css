@@ -86,7 +86,6 @@ p, a {
     transition: transform ease-out 0.3s, -webkit-transform ease-out 0.3s;
 }
 
-
 /* Color for default flash 'alert-message' */
 
 .alert-message {
