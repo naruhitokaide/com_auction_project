@@ -70,9 +70,13 @@ def check_upload_file(form):
 @listingbp.route('/mylistings', methods=['GET', 'POST'])
 @login_required
 def mylistings():
-  listings = Listing.query.filter_by(seller=current_user.name).all()
+  listings = Listing.query.filter_by(seller=current_user.name, status='Active').all()
   return render_template('listings/mylistings.html', listings=listings)
 
+# def delete_listing(listingid):
+#   listing = Listing.query.filter_by(id=listingid).first()
+#   db.session.delete(listing)
+#   db.session.commit()
 
 @listingbp.route('/watchlist', methods=['GET', 'POST'])
 @login_required
