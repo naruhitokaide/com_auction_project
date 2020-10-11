@@ -86,7 +86,7 @@
               <div role="tabpanel1" class="card-body tab-pane text-left" id="reviews">
                 {% for review in listing.reviews %}
                 <div class="mb-4 border-bottom">
-                  <b>{{review.users_id}}<span class="ml-2 text-muted">{{review.created_at}}</span></b>  
+                  <b>{{review.user.name}}<span class="ml-2 text-muted">{{review.created_at}}</span></b>  
                   <h5 class="review-title mt-2">{{review.title}}</h5>
                   <p class="review-description">{{review.feedback}}</p>
                 </div>
