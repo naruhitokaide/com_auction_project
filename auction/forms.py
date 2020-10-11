@@ -41,6 +41,6 @@ class ListingForm(FlaskForm):
     submit = SubmitField('Post Listing')
 
 class ReviewForm(FlaskForm):
-    title = TextAreaField('Title', [InputRequired('Title is required'), Length(min=1, max=20, message='Title is too long')])
+    title = StringField('Title', [InputRequired('Title is required'), Length(min=1, max=20, message='Title is too long')])
     feedback = TextAreaField('Review', [InputRequired('Review is required'), Length(min=5, max=400, message='Review is too long or too short')])
     submit = SubmitField('Post Review') 

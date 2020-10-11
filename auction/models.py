@@ -30,6 +30,9 @@ class Listing(db.Model):
     end_date = db.Column(db.DateTime, nullable = False)
     seller = db.Column(db.String(15), nullable = False)
 
+    # Relationship to call listing.reviews
+    reviews = db.relationship('Review', backref='listingreviews') 
+
     def set_review(self, review):
         self.reviews.append(review)
 
