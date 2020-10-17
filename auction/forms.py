@@ -46,5 +46,5 @@ class ReviewForm(FlaskForm):
     submit = SubmitField('Post Review') 
 
 class BidForm(FlaskForm):
-    bid_amount = DecimalField('', render_kw={"placeholder": "Bid Amount..."})
+    bid_amount = DecimalField('', render_kw={"placeholder": "Bid amount..."})
     submit = SubmitField('Place Bid')
