@@ -71,16 +71,17 @@ def check_upload_file(form):
 @listingbp.route('/mylistings', methods=['GET', 'POST'])
 @login_required
 def mylistings():
-  listings = Listing.query.filter_by(seller=current_user.name, status='Active').all()
+  listings = Listing.query.filter_by(seller=current_user.name).all()
   return render_template('listings/mylistings.html', listings=listings)
 
-@listingbp.route('/mylistings/<listing>/delete', methods=['GET', 'POST', 'DELETE'])
-def delete_listing(listing):
-   deleted_listing = Listing.query.filter_by(id=listing).first()
-   db.session.delete(deleted_listing)
+@listingbp.route('/mylistings/<listing>/close', methods=['GET', 'POST'])
+def close_listing(listing):
+   update_listing = Listing.query.filter_by(id=listing).first()
+   update_listing.status = 'Closed' 
    db.session.commit()
-   listings = Listing.query.filter_by(seller=current_user.name, status='Active').all()
 
+   # Re-render page with updated items 
+   listings = Listing.query.filter_by(seller=current_user.name).all()
    return render_template('listings/mylistings.html', listings=listings)
 
 

@@ -25,14 +25,19 @@
             <div class="col-md-9">
               <div class="card-body">
                 <a href="{{url_for('listing.showlisting', id=listing.id)}}"><h5 class="card-title">{{listing.title}}</h5></a>
+                {% if listing.status == 'Active' %} 
                 <p class="d-block mb-2"><i class="fas fa-check-circle text-success"></i><span class="text-muted">
                   Status:</span><strong> {{listing.status}}</strong></p>
+                {% else %}
+                <p class="d-block mb-2"><i class="fas fa-times-circle text-danger"></i><span class="text-muted">
+                  Status:</span><strong> {{listing.status}}</strong></p>
+                {% endif %}
                 <p class="d-block mb-2"><i class="fas fa-sort-numeric-up-alt text-muted"></i><span class="text-muted"> Total
                   Bids:</span><strong> {{listing.total_bids}}</strong></p>
                 <div>
                   <button class="btn btn-primary d-inline" type="button" data-toggle="collapse" data-target="#listingBids" aria-expanded="false" aria-controls="listingBids">See all Bids</button>
                 
-                  <form class="d-inline" action="{{ url_for('listing.delete_listing', listing=listing.id)}}" method="DELETE">
+                  <form class="d-inline" action="{{ url_for('listing.close_listing', listing=listing.id)}}" method="POST">
                     <button class="btn btn-danger" type="submit">Close Listing</button>
                   </form>
                 </div>
