@@ -44,17 +44,19 @@
             
                     <tbody>
                       <!-- Content -->
+                      {% for bid in listing.bids %}
                       <tr>
                         <td class="align-middle">
-                          <p>ben04rogers</p>
+                          <p>{{bid.bidder_name}}</p>
                         </td>
                         <td class="align-middle">
-                          <p>11/12/2020</p>
+                          <p>{{bid.bid_date}}</p>
                         </td>
                         <td class="align-middle">
-                          <p>$1000</p>
+                          <p>${{bid.bid_amount}}</p>
                         </td>
                       </tr>
+                      {% endfor %}
                     </tbody>
                   </table>
                 </div>

@@ -33,6 +33,9 @@ class Listing(db.Model):
     # Relationship to call listing.reviews
     reviews = db.relationship('Review', backref='listingreviews') 
 
+    # Relationship to call listing.bids
+    bids = db.relationship('Bid', backref='listingbids') 
+
     def set_review(self, review):
         self.reviews.append(review)
 
@@ -67,5 +70,5 @@ class Bid(db.Model):
     bid_date = db.Column(db.DateTime, default = datetime.now())
 
     # Foreign Keys 
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    bidder_name = db.Column(db.String(100), db.ForeignKey('users.name'))
     listing_id = db.Column(db.Integer, db.ForeignKey('listings.id'))

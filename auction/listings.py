@@ -110,7 +110,7 @@ def placebid(listing):
       bid = Bid()
       bid.bid_amount = bidform.bid_amount.data
       bid.listing_id = listing_obj.id
-      bid.user_id = current_user.id
+      bid.bidder_name = current_user.name
       db.session.add(bid)
       db.session.commit()
       print('Bid was successfully placed!', 'success') 
