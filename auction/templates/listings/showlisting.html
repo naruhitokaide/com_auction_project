@@ -40,13 +40,7 @@
 
             <!-- Right Side -->
             <div class="col-lg-9 d-flex align-items-center justify-content-center border-left">
-              <div class="input-group px-3">
-                {{bidform.bid_amount}}
-                <div class="input-group-append">
-                  {{bidform.submit}}
-                </div>
-                {{bidform.csrf_token}}
-              </div>
+                {{wtf.quick_form(bidform, "/listings/{0}/bid".format(listing.id))}}
             </div>
           </div>
         </div>

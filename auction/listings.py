@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, session, url_for, redirect
-from .models import Listing, Review
+from .models import Listing, Review, Bid
 from auction.forms import ListingForm, ReviewForm, BidForm
 from . import db
 from werkzeug.utils import secure_filename
@@ -15,8 +15,8 @@ def showlisting(id):
     listing = Listing.query.filter_by(id=id).first()
     review_form_instance = ReviewForm()
     bid_form_instance = BidForm()
+
     return render_template('listings/showlisting.html', listing=listing, form=review_form_instance, bidform=bid_form_instance)
-  
 
 @listingbp.route('/create', methods=['GET', 'POST'])
 @login_required #login is required for creating a listing
@@ -97,4 +97,23 @@ def review(listing):
       db.session.add(review)
       db.session.commit()
       print('Thank you for submitting a review of this item', 'success') 
+    return redirect(url_for('listing.showlisting', id=listing))
+
+@listingbp.route('/<listing>/bid', methods = ['GET', 'POST'])  
+@login_required
+def placebid(listing):
+    bidform = BidForm()
+    listing_obj = Listing.query.filter_by(id=listing).first()
+
+    if bidform.validate_on_submit():  
+      # Write to database
+      bid = Bid()
+      bid.bid_amount = bidform.bid_amount.data
+      bid.listing_id = listing_obj.id
+      bid.user_id = current_user.id
+      db.session.add(bid)
+      db.session.commit()
+      print('Bid was successfully placed!', 'success') 
+    else: 
+      print('Bid form is not valid')
     return redirect(url_for('listing.showlisting', id=listing))
