@@ -29,8 +29,14 @@
                   Status:</span><strong> {{listing.status}}</strong></p>
                 <p class="d-block mb-2"><i class="fas fa-sort-numeric-up-alt text-muted"></i><span class="text-muted"> Total
                   Bids:</span><strong> {{listing.total_bids}}</strong></p>
-                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#listingBids" aria-expanded="false" aria-controls="listingBids">See all Bids</button>
-                <button class="btn btn-danger">Close Listing</button>
+                <div>
+                  <button class="btn btn-primary d-inline" type="button" data-toggle="collapse" data-target="#listingBids" aria-expanded="false" aria-controls="listingBids">See all Bids</button>
+                
+                  <form class="d-inline" action="{{ url_for('listing.delete_listing', listing=listing.id)}}" method="DELETE">
+                    <button class="btn btn-danger" type="submit">Close Listing</button>
+                  </form>
+                </div>
+                
 
                 <div class="collapse container card table-responsive p-0 mt-3" id="listingBids">
                   <table class="table">

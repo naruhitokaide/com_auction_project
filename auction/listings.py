@@ -74,10 +74,15 @@ def mylistings():
   listings = Listing.query.filter_by(seller=current_user.name, status='Active').all()
   return render_template('listings/mylistings.html', listings=listings)
 
-# def delete_listing(listingid):
-#   listing = Listing.query.filter_by(id=listingid).first()
-#   db.session.delete(listing)
-#   db.session.commit()
+@listingbp.route('/mylistings/<listing>/delete', methods=['GET', 'POST', 'DELETE'])
+def delete_listing(listing):
+   deleted_listing = Listing.query.filter_by(id=listing).first()
+   db.session.delete(deleted_listing)
+   db.session.commit()
+   listings = Listing.query.filter_by(seller=current_user.name, status='Active').all()
+
+   return render_template('listings/mylistings.html', listings=listings)
+
 
 @listingbp.route('/watchlist', methods=['GET', 'POST'])
 @login_required
