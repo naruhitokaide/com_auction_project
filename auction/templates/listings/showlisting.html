@@ -41,10 +41,11 @@
             <!-- Right Side -->
             <div class="col-lg-9 d-flex align-items-center justify-content-center border-left">
               <div class="input-group px-3">
-                <input type="text" class="form-control" placeholder="Bid Amount..">
+                {{bidform.bid_amount}}
                 <div class="input-group-append">
-                  <button class="btn btn-blue" type="button">Place Bid</button>
+                  {{bidform.submit}}
                 </div>
+                {{bidform.csrf_token}}
               </div>
             </div>
           </div>

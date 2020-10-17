@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, session, url_for, redirect
 from .models import Listing, Review
-from auction.forms import ListingForm, ReviewForm
+from auction.forms import ListingForm, ReviewForm, BidForm
 from . import db
 from werkzeug.utils import secure_filename
 import os
@@ -14,12 +14,12 @@ listingbp = Blueprint('listing', __name__, url_prefix='/listings')
 def showlisting(id):
     listing = Listing.query.filter_by(id=id).first()
     review_form_instance = ReviewForm()
-    return render_template('listings/showlisting.html', listing=listing, form=review_form_instance)
-
+    bid_form_instance = BidForm()
+    return render_template('listings/showlisting.html', listing=listing, form=review_form_instance, bidform=bid_form_instance)
+  
 
 @listingbp.route('/create', methods=['GET', 'POST'])
 @login_required #login is required for creating a listing
-
 def createlisting():
   form = ListingForm()
 
