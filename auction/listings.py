@@ -104,6 +104,7 @@ def review(listing):
 def placebid(listing):
     bidform = BidForm()
     listing_obj = Listing.query.filter_by(id=listing).first()
+    
 
     if bidform.validate_on_submit():  
       # Write to database
@@ -111,7 +112,13 @@ def placebid(listing):
       bid.bid_amount = bidform.bid_amount.data
       bid.listing_id = listing_obj.id
       bid.bidder_name = current_user.name
+
+      # Update total bids 
+      update_total_bids = Listing.query.filter_by(id=listing).first()
+      update_total_bids.total_bids += 1
+
       db.session.add(bid)
+      
       db.session.commit()
       print('Bid was successfully placed!', 'success') 
     else: 
