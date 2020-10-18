@@ -21,27 +21,27 @@ def showlisting(id):
 @listingbp.route('/create', methods=['GET', 'POST'])
 @login_required #login is required for creating a listing
 def createlisting():
-  form = ListingForm()
+  listingform = ListingForm()
 
-  if form.validate_on_submit():
+  if listingform.validate_on_submit():
     #Check the image file
-    db_file_path = check_upload_file(form)
+    db_file_path = check_upload_file(listingform)
 
     # Write data to database
     listing = Listing()
     
-    listing.title = form.title.data
-    listing.starting_bid = form.starting_bid.data
-    listing.current_bid = form.starting_bid.data
+    listing.title = listingform.title.data
+    listing.starting_bid = listingform.starting_bid.data
+    listing.current_bid = listingform.starting_bid.data
     listing.total_bids = 0
-    listing.brand = form.brand.data
-    listing.cpu =  form.cpu.data
-    listing.ram_gb = form.ram.data
-    listing.storage_gb = form.storage.data
-    listing.condition = form.condition.data
-    listing.end_date = form.end_date.data
+    listing.brand = listingform.brand.data
+    listing.cpu =  listingform.cpu.data
+    listing.ram_gb = listingform.ram.data
+    listing.storage_gb = listingform.storage.data
+    listing.condition = listingform.condition.data
+    listing.end_date = listingform.end_date.data
     listing.status = 'Active'
-    listing.description = form.description.data
+    listing.description = listingform.description.data
     listing.image_url = db_file_path
     listing.seller = current_user.name
   
@@ -56,7 +56,7 @@ def createlisting():
   else:
     print('form is not valid')
 
-  return render_template('listings/createlisting.html', form=form)
+  return render_template('listings/createlisting.html', form=listingform)
 
 def check_upload_file(form):
   fp = form.image_url.data
@@ -124,7 +124,7 @@ def placebid(listing):
         listing_obj.current_bid = bid.bid_amount
         flash("Bid was successfully placed!", 'success')
       else: 
-        flash ("Bid amount must be higher than current bid")
+        flash ("Bid amount has to be higher than current bid")
           
 
       # Update total bids 
