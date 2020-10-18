@@ -37,9 +37,11 @@
                 <div>
                   <button class="btn btn-primary d-inline" type="button" data-toggle="collapse" data-target="#listingBids" aria-expanded="false" aria-controls="listingBids">See all Bids</button>
                 
+                  {% if listing.status == 'Active' %} 
                   <form class="d-inline" action="{{ url_for('listing.close_listing', listing=listing.id)}}" method="POST">
                     <button class="btn btn-danger" type="submit">Close Listing</button>
                   </form>
+                  {% endif %}
                 </div>
                 
 
