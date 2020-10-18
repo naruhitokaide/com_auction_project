@@ -98,6 +98,20 @@ p, a {
     border-color: #f5c6cb;
 }
 
+/* Place bid box */
+
+.bid-input {
+    height: 40px;
+    border-top-left-radius: 0.15rem;
+    border-bottom-left-radius: 0.15rem;
+    border: 1px solid #ced4da;
+    padding: .375rem .75rem;
+    margin-bottom: 0;
+}
+
+.bid-btn {
+    height: 40px;
+}
 
 /* Border radius for page navigation on buy screen */
 
