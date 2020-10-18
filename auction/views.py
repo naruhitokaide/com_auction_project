@@ -15,7 +15,7 @@ def search():
     if request.args['search']:
         item = "%" + request.args['search'] + '%'
     #use filter and like function to search for matching item
-        listing = Listing.query.filter(Listing.title.like(item)).all()
+        listing = Listing.query.filter(Listing.title.like(item), Listing.status=='Active').all()
         return render_template('index.html', listings=listing)
     else:
         return redirect(url_for('main.index'))
