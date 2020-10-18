@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, session, url_for, redirect
+from flask import Blueprint, render_template, request, session, url_for, redirect, flash
 from .models import Listing, Review, Bid
 from auction.forms import ListingForm, ReviewForm, BidForm
 from . import db
@@ -121,7 +121,11 @@ def placebid(listing):
 
       # Check if bid is more than current bid 
       if bid.bid_amount > listing_obj.current_bid:
-          listing_obj.current_bid = bid.bid_amount
+        listing_obj.current_bid = bid.bid_amount
+        flash("Bid was successfully placed!", 'success')
+      else: 
+        flash ("Bid amount must be higher than current bid")
+          
 
       # Update total bids 
       update_total_bids = Listing.query.filter_by(id=listing).first()
