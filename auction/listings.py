@@ -122,14 +122,15 @@ def placebid(listing):
       # Check if bid is more than current bid 
       if bid.bid_amount > listing_obj.current_bid:
         listing_obj.current_bid = bid.bid_amount
+
+        # Update total bids 
+        update_total_bids = Listing.query.filter_by(id=listing).first()
+        update_total_bids.total_bids += 1
+        
         flash("Bid was successfully placed!", 'success')
       else: 
         flash ("Bid amount has to be higher than current bid")
           
-
-      # Update total bids 
-      update_total_bids = Listing.query.filter_by(id=listing).first()
-      update_total_bids.total_bids += 1
 
       db.session.add(bid)
       
