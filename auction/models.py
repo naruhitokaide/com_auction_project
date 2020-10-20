@@ -32,6 +32,12 @@ class Listing(db.Model):
     seller = db.Column(db.String(15), nullable = False)
     watchlist = db.relationship('WatchListItem', backref = 'listing')
 
+    # Relationship to call listing.reviews
+    reviews = db.relationship('Review', backref='listingreviews') 
+
+    # Relationship to call listing.bids
+    bids = db.relationship('Bid', backref='listingbids') 
+
     def set_review(self, review):
         self.reviews.append(review)
 
@@ -57,4 +63,14 @@ class WatchListItem(db.Model):
 
     # Foreign Keys
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    listing_id = db.Column(db.Integer, db.ForeignKey('listings.id'))
+
+class Bid(db.Model):
+    __tablename__ = 'bids'
+    id = db.Column(db.Integer, primary_key=True)
+    bid_amount = db.Column(db.Float, nullable = False)
+    bid_date = db.Column(db.DateTime, default = datetime.now())
+
+    # Foreign Keys 
+    bidder_name = db.Column(db.String(100), db.ForeignKey('users.name'))
     listing_id = db.Column(db.Integer, db.ForeignKey('listings.id'))

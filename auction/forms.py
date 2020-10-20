@@ -41,6 +41,10 @@ class ListingForm(FlaskForm):
     submit = SubmitField('Post Listing')
 
 class ReviewForm(FlaskForm):
-    title = TextAreaField('Title', [InputRequired('Title is required'), Length(min=1, max=20, message='Title is too long')])
-    feedback = TextAreaField('Review', [InputRequired('Review is required'), Length(min=5, max=400, message='Review is too long or too short')])
+    title = StringField('Title', [InputRequired('Title is required'), Length(min=1, max=20, message='Title is too long')], render_kw={"placeholder": "Example: Great Features!"})
+    feedback = TextAreaField('Review', [InputRequired('Review is required'), Length(min=5, max=400, message='Review is too long or too short')], render_kw={"placeholder": "Example: I bought this laptop a month ago and it has been great so far!"})
     submit = SubmitField('Post Review') 
+
+class BidForm(FlaskForm):
+    bid_amount = DecimalField('', render_kw={"placeholder": "Bid amount..."})
+    submit = SubmitField('Place Bid')
