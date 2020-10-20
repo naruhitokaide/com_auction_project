@@ -1,13 +1,12 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from .models import Listing
-from sqlalchemy import or_
 
 # Create main blueprint
 mainbp = Blueprint('main', __name__)
 
 @mainbp.route('/')
 def index():
-    listings = Listing.query.filter_by(status='Active').all()
+    listings = Listing.query.all()
     return render_template('index.html', listings=listings)
 
 @mainbp.route('/search')
@@ -16,15 +15,7 @@ def search():
     if request.args['search']:
         item = "%" + request.args['search'] + '%'
     #use filter and like function to search for matching item
-        listing = Listing.query.filter(
-            or_(
-                Listing.title.like(item),
-                Listing.cpu.like(item),
-                Listing.brand.like(item),
-                Listing.ram_gb.like(item),
-                Listing.storage_gb.like(item)
-            )
-        )
+        listing = Listing.query.filter(Listing.title.like(item)).all()
         return render_template('index.html', listings=listing)
     else:
         return redirect(url_for('main.index'))
