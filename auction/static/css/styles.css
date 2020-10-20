@@ -14,15 +14,27 @@ p, a {
     border-radius: 0.15rem;
 }
 
+.welcome-msg {
+    display: inline;
+}
+
 .card-img-top {
     border-top-left-radius: 0.15rem;
     border-top-right-radius: 0.15rem;
     height: 150px;
 }
+/* My Listings Card Image */
 
-
+.card-img {
+    height: 180px;
+}
 
 /* Button styling */
+
+.btn-default {
+    background-color: #3a86ff;
+    color: white;
+}
 
 .btn-sign-up{
     background-color: #ff854b;
@@ -78,6 +90,29 @@ p, a {
     transition: transform ease-out 0.3s, -webkit-transform ease-out 0.3s;
 }
 
+/* Color for default flash 'alert-message' */
+
+.alert-message {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+/* Place bid box */
+
+.bid-input {
+    height: 40px;
+    border-top-left-radius: 0.15rem;
+    border-bottom-left-radius: 0.15rem;
+    border: 1px solid #ced4da;
+    padding: .375rem .75rem;
+    margin-bottom: 0;
+}
+
+.bid-btn {
+    height: 40px;
+}
+
 /* Border radius for page navigation on buy screen */
 
 .page-item:first-child .page-link {
@@ -123,11 +158,21 @@ p, a {
     .category-menu {
         flex-direction: row;
     }
+
+    .welcome-msg {
+        display: block;
+        text-align: center;
+        margin-top: 15px;
+    }
 }
 
 @media (max-width: 768px) {
     .reviews-box {
         padding-left:0;
+    }
+
+    .card-img-top {
+        height: auto;
     }
 }
 
