@@ -2,10 +2,3 @@
 
 Group 14
 
-# Authors: 
-
-- Ben Rogers
-- Jenny Jeong 
-- Liam Amos 
-- Kristina Icong
-
