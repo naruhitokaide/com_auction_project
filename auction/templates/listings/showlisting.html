@@ -29,9 +29,22 @@
             <a class="btn btn-blue mb-3" href="#" role="button"><i class="fas fa-eye"></i> Watch List</a>
           </div>
 
-          <!-- Place Bid Box-->
-          <div class="row border py-3 shadow">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+          <!-- check if there are any messages -->
+          <div class="row mt-3 mb-3">
+            <div class="col-md-12">
+              {% for category, message in messages %}
+              <!--loop through the messages-->
+              <div class="alert alert-{{ category }}">{{ message }}</div>
+              <!--display as alert-->
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
+          {% endwith %}
 
+          <div class="row border py-3 shadow">
             <!-- Left Side -->
             <div class="col-lg-3 text-center">
               <p>Current Bid</p>
@@ -39,15 +52,21 @@
             </div>
 
             <!-- Right Side -->
-            <div class="col-lg-9 d-flex align-items-center justify-content-center border-left">
-              <div class="input-group px-3">
-                <input type="text" class="form-control" placeholder="Bid Amount..">
+            <form action="{{ url_for('listing.placebid', listing=listing.id)}}" method="POST" role="form" class="col-lg-9 d-flex align-items-center justify-content-center border-left">
+              {{ bidform.csrf_token() }}
+              <div class="input-group justify-content-center pt-3">
+                
+                  {{ wtf.form_field(bidform.bid_amount, class='bid-input', placeholder='Bid amount...') }}
+
                 <div class="input-group-append">
-                  <button class="btn btn-blue" type="button">Place Bid</button>
+                  {{wtf.form_field(bidform.submit, class="btn btn-blue bid-btn")}}
                 </div>
               </div>
-            </div>
+            </form>
           </div>
+          
+
+
         </div>
       </div>
 
@@ -86,7 +105,7 @@
               <div role="tabpanel1" class="card-body tab-pane text-left" id="reviews">
                 {% for review in listing.reviews %}
                 <div class="mb-4 border-bottom">
-                  <b>{{review.users_id}}<span class="ml-2 text-muted">{{review.created_at}}</span></b>  
+                  <b>{{review.user.name}}<span class="ml-2 text-muted">{{review.created_at}}</span></b>  
                   <h5 class="review-title mt-2">{{review.title}}</h5>
                   <p class="review-description">{{review.feedback}}</p>
                 </div>

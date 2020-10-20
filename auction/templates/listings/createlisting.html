@@ -21,6 +21,72 @@
         {{wtf.quick_form(form)}}
       </div>
     </div>
+
+    <!--Testing new form layout-->
+    <!--
+    <div>
+      <form action="{{ url_for('listing.createlisting')}}" method="POST" role="form">
+        {{ form.csrf_token() }}
+
+        <div class="row">
+          <div class="col-md-6">
+            {{ wtf.form_field(form.title, placeholder='Title...') }}
+          </div>
+          <div class="col-md-6">
+            {{ wtf.form_field(form.starting_bid, placeholder='Starting Bid...') }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            {{ wtf.form_field(form.brand) }}
+          </div>
+          <div class="col-md-6">
+            {{ wtf.form_field(form.cpu) }}
+          </div>
+        </div>
+      
+
+        <div class="row">
+          <div class="col-md-6">
+            {{ wtf.form_field(form.ram) }}
+          </div>
+          <div class="col-md-6">
+            {{ wtf.form_field(form.storage) }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            {{ wtf.form_field(form.condition) }}
+          </div>
+          <div class="col-md-6">
+            {{ wtf.form_field(form.end_date) }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            {{ wtf.form_field(form.image_url) }}
+          </div>
+          
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            {{ wtf.form_field(form.description, placeholder="Item description...") }}
+          </div>
+        </div>
+
+        <div class=row>
+          <div class="col-md-12">
+            {{ wtf.form_field(form.submit, class="btn btn-blue") }}
+          </div>
+        </div>
+      </form>
+    </div>
+  -->
+    
   </div>
 </div>
 {% endblock %}

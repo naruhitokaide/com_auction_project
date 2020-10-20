@@ -54,7 +54,7 @@
           <div class="ml-auto">
             <!-- Show message and 'logout' button if user is not already logged in-->
             {% if current_user.is_authenticated %} 
-                <p class="text-white d-inline mr-2">Welcome, {{current_user.name}} 👋</p>
+                <p class="text-white mr-2 welcome-msg">Welcome, {{current_user.name}} 👋</p>
                 <a href="{{url_for('authentication.logout')}}" class="btn btn-outline-light btn-sm-block btn-login">Logout</a>
             <!-- Show 'login' and 'sign up' buttons if user is not already logged in-->
             {% else %} 
