@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, session, url_for, redirect
-from .models import Listing, Review
+from .models import Listing, Review, WatchListItem
 from auction.forms import ListingForm, ReviewForm
 from . import db
 from werkzeug.utils import secure_filename
@@ -75,7 +75,11 @@ def mylistings():
 
 @listingbp.route('/watchlist', methods=['GET', 'POST'])
 @login_required
-def watchlist():
+def watchlist(listing):
+  item  = Listing.query.filter_by(id=listing).first()
+  watchlist_item = WatchListItem(listing_id = item.id, user = current_user)
+  db.session.add(watchlist_item)
+  db.session.commit()
   return render_template('listings/watchlist.html')
 
 

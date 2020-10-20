@@ -11,6 +11,7 @@ class User(db.Model, UserMixin):
     address = db.Column(db.String(100), index=True, nullable=False)
     password_hash = db.Column(db.String(255), nullable=False)
     reviews = db.relationship('Review', backref = 'user')
+    watchlist = db.relationship('WatchListItem', backref = 'user')
 
 class Listing(db.Model): 
     __tablename__ = 'listings'
@@ -29,6 +30,7 @@ class Listing(db.Model):
     image_url = db.Column(db.String(400), nullable = False)
     end_date = db.Column(db.DateTime, nullable = False)
     seller = db.Column(db.String(15), nullable = False)
+    watchlist = db.relationship('WatchListItem', backref = 'listing')
 
     def set_review(self, review):
         self.reviews.append(review)
