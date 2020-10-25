@@ -130,7 +130,9 @@
                     <strong>DD:HH:MM</strong></span>
                 </div>
 
-                <a class="btn btn-blue btn-block" href="#" role="button"><i class="fas fa-eye"></i> Watch List</a>
+                <form class="d-inline" action="{{url_for('listing.add_watchlist', listing=listing.id)}}" method="POST">
+                  <button class="btn btn-blue" type="submit"><i class="fas fa-eye"></i> Watch List</button>
+                </form>
               </div>
             </div>
           </div>

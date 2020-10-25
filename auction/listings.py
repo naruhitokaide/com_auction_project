@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, session, url_for, redirect, flash
-from .models import Listing, Review, Bid
+from .models import Listing, Review, Bid, WatchListItem
 from auction.forms import ListingForm, ReviewForm, BidForm
 from . import db
 from werkzeug.utils import secure_filename
@@ -85,10 +85,34 @@ def close_listing(listing):
    return render_template('listings/mylistings.html', listings=listings)
 
 
+@listingbp.route('<listing>/watchlist', methods=['GET', 'POST'])
+@login_required
+def add_watchlist(listing):
+    item  = Listing.query.filter_by(id=listing).first()
+    
+    watchlist_item = WatchListItem(listing_id = item.id, user_id = current_user.id)
+    db.session.add(watchlist_item)
+    db.session.commit()
+
+    watchItems = WatchListItem.query.filter_by(user_id = current_user.id).all()
+    return render_template('listings/watchlist.html', listings=watchItems)
+
+
 @listingbp.route('/watchlist', methods=['GET', 'POST'])
 @login_required
 def watchlist():
-  return render_template('listings/watchlist.html')
+    watchItems = WatchListItem.query.filter_by(user_id = current_user.id).all()
+    return render_template('listings/watchlist.html', listings=watchItems)
+
+
+@listingbp.route('/watchlist/<listing>/remove', methods=['GET', 'POST'])
+def remove_watchlist(listing):
+   update_watchlist = WatchListItem.query.filter_by(id=listing).first()
+   db.session.delete(update_watchlist)
+   db.session.commit()
+
+   watchItems = WatchListItem.query.filter_by(user_id = current_user.id).all()
+   return render_template('listings/watchlist.html', listings=watchItems)
 
 
 @listingbp.route('/<listing>/review', methods = ['GET', 'POST'])  
@@ -133,7 +157,6 @@ def placebid(listing):
           
 
       db.session.add(bid)
-      
       db.session.commit()
       print('Bid was successfully placed!', 'success') 
     else: 

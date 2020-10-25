@@ -26,7 +26,9 @@
                 Condition:</span><strong> {{listing.condition}}</strong></p>
             <p class="d-block mb-4"><i class="fas fa-sort-numeric-up-alt text-muted"></i><span class="text-muted"> Total
                 Bids:</span><strong> {{listing.total_bids}}</strong></p>
-            <a class="btn btn-blue mb-3" href="#" role="button"><i class="fas fa-eye"></i> Watch List</a>
+            <form class="d-inline" action="{{url_for('listing.add_watchlist', listing=listing.id)}}" method="POST">
+              <button class="btn btn-blue" type="submit"><i class="fas fa-eye"></i> Watch List</button>
+            </form>
           </div>
 
           {% with messages = get_flashed_messages(with_categories=true) %}
