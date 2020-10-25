@@ -89,13 +89,10 @@ def close_listing(listing):
 @login_required
 def add_watchlist(listing):
     item  = Listing.query.filter_by(id=listing).first()
-    
     watchlist_item = WatchListItem(listing_id = item.id, user_id = current_user.id)
     db.session.add(watchlist_item)
     db.session.commit()
-
-    watchItems = WatchListItem.query.filter_by(user_id = current_user.id).all()
-    return render_template('listings/watchlist.html', listings=watchItems)
+    return redirect(url_for('listing.showlisting', id=listing))
 
 
 @listingbp.route('/watchlist', methods=['GET', 'POST'])
