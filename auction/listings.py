@@ -115,8 +115,19 @@ def remove_watchlist(listing):
    db.session.delete(update_watchlist)
    db.session.commit()
 
-   watchItems = WatchListItem.query.filter_by(user_id = current_user.id).all()
-   return render_template('listings/watchlist.html', listings=watchItems)
+   # Re-render page with updated items 
+ 
+   watchListItems = WatchListItem.query.filter_by(user_id = current_user.id).all()
+   allListings = Listing.query.filter_by(status='Active').all()
+
+   watchlistlistings = []
+
+   for watchlistitem in watchListItems:
+     for listing in allListings:
+       if watchlistitem.listing_id == listing.id:
+         watchlistlistings.append(listing)
+
+   return render_template('listings/watchlist.html', watchlistitems=watchlistlistings)
 
 
 @listingbp.route('/<listing>/review', methods = ['GET', 'POST'])  
