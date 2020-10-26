@@ -101,10 +101,10 @@ def watchlist():
     watchlistlistings = []
 
     # Find listings that are inside of the users watch list
-    for eachwatchlistitem in watchListItems:
-      for everylisting in allListings:
-        if eachwatchlistitem.id == everylisting.id:
-          watchlistlistings.append(everylisting)
+    for watchlistitem in watchListItems:
+      for listing in allListings:
+        if watchlistitem.id == listing.id:
+          watchlistlistings.append(listing)
 
     return render_template('listings/watchlist.html', watchlistitems=watchlistlistings)
 
