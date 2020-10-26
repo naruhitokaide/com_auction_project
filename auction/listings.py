@@ -67,7 +67,6 @@ def check_upload_file(form):
   fp.save(upload_path)
   return db_upload_path
 
-
 @listingbp.route('/mylistings', methods=['GET', 'POST'])
 @login_required
 def mylistings():
@@ -84,7 +83,6 @@ def close_listing(listing):
    listings = Listing.query.filter_by(seller=current_user.name).all()
    return render_template('listings/mylistings.html', listings=listings)
 
-
 @listingbp.route('<listing>/watchlist', methods=['GET', 'POST'])
 @login_required
 def add_watchlist(listing):
@@ -94,12 +92,21 @@ def add_watchlist(listing):
     db.session.commit()
     return redirect(url_for('listing.showlisting', id=listing))
 
-
 @listingbp.route('/watchlist', methods=['GET', 'POST'])
 @login_required
 def watchlist():
-    watchItems = WatchListItem.query.filter_by(user_id = current_user.id).all()
-    return render_template('listings/watchlist.html', listings=watchItems)
+    watchListItems = WatchListItem.query.filter_by(user_id = current_user.id).all()
+    allListings = Listing.query.filter_by(status='Active').all()
+
+    watchlistlistings = []
+
+    # List of listings that are inside of the users watch list
+    for eachwatchlistitem in watchListItems:
+      for everylisting in allListings:
+        if eachwatchlistitem.id == everylisting.id:
+          watchlistlistings.append(everylisting)
+
+    return render_template('listings/watchlist.html', watchlistitems=watchlistlistings)
 
 
 @listingbp.route('/watchlist/<listing>/remove', methods=['GET', 'POST'])
@@ -131,7 +138,6 @@ def review(listing):
 def placebid(listing):
     bidform = BidForm()
     listing_obj = Listing.query.filter_by(id=listing).first()
-    
 
     if bidform.validate_on_submit():  
       # Write to database
@@ -152,7 +158,6 @@ def placebid(listing):
       else: 
         flash ("Bid amount has to be higher than current bid")
           
-
       db.session.add(bid)
       db.session.commit()
       print('Bid was successfully placed!', 'success') 
