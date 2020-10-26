@@ -100,7 +100,7 @@ def watchlist():
 
     watchlistlistings = []
 
-    # List of listings that are inside of the users watch list
+    # Find listings that are inside of the users watch list
     for eachwatchlistitem in watchListItems:
       for everylisting in allListings:
         if eachwatchlistitem.id == everylisting.id:
