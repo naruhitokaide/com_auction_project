@@ -89,6 +89,7 @@ def add_watchlist(listing):
     item  = Listing.query.filter_by(id=listing).first()
     watchlist_item = WatchListItem(listing_id = item.id, user_id = current_user.id)
     
+    # Returns true if item is already in table
     itemexists = bool(WatchListItem.query.filter_by(listing_id=item.id).first())
 
     if (itemexists):
