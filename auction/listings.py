@@ -111,7 +111,7 @@ def watchlist():
 
 @listingbp.route('/watchlist/<listing>/remove', methods=['GET', 'POST'])
 def remove_watchlist(listing):
-   update_watchlist = WatchListItem.query.filter_by(id=listing).first()
+   update_watchlist = WatchListItem.query.filter_by(listing_id=listing).first()
    db.session.delete(update_watchlist)
    db.session.commit()
 
