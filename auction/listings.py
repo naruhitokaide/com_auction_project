@@ -88,9 +88,23 @@ def close_listing(listing):
 def add_watchlist(listing):
     item  = Listing.query.filter_by(id=listing).first()
     watchlist_item = WatchListItem(listing_id = item.id, user_id = current_user.id)
+
+    # without if statements
     db.session.add(watchlist_item)
     db.session.commit()
     return redirect(url_for('listing.showlisting', id=listing))
+
+
+    # if WatchListItem.query.filter_by(listing_id = item.id, user_id = current_user.id) != None:
+    #   flash ("This item is already in your Watchlist")
+
+    # elif (current_user.name == item.seller):
+    #   flash ("Cannot add your listing to your Watchlist")
+
+    # else: 
+    #   db.session.add(watchlist_item)
+    #   db.session.commit()
+    # return redirect(url_for('listing.showlisting', id=listing))
 
 @listingbp.route('/watchlist', methods=['GET', 'POST'])
 @login_required

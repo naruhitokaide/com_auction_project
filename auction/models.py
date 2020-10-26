@@ -32,7 +32,6 @@ class Listing(db.Model):
 
     # Relationship to call listing.reviews
     reviews = db.relationship('Review', backref='listingreviews') 
-
     # Relationship to call listing.bids
     bids = db.relationship('Bid', backref='listingbids') 
 
@@ -46,6 +45,7 @@ class Review(db.Model):
     feedback = db.Column(db.String(400), nullable = False)
     created_at = db.Column(db.DateTime, default = datetime.now())
 
+    #Foreign Keys
     users_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     listing = db.Column(db.Integer, db.ForeignKey('listings.id'))
 
