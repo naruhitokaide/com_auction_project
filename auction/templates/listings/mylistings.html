@@ -60,7 +60,7 @@
                       <!-- Content -->
                       {% for bid in listing.bids %}
                         {% if bid.bid_status == 'Won' %} 
-                        <tr class="bg-success">
+                        <tr class="btn-default">
                           <td class="align-middle">
                             <p>{{bid.bidder_name}}</p>
                           </td>
@@ -71,7 +71,7 @@
                             <p>${{bid.bid_amount}}</p>
                           </td>
                           <td class="align-middle">
-                            <p>{{bid.bid_status}}</p>
+                            <p>🎉 {{bid.bid_status}} 🎉</p>
                           </td>
                         </tr>
                         {% else %}
