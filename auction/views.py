@@ -23,7 +23,7 @@ def search():
                 Listing.brand.like(item),
                 Listing.ram_gb.like(item),
                 Listing.storage_gb.like(item)
-            )
+            ), Listing.status=='Active'
         )
         # Search result message 
         resultMessage = "{0} results matching '{1}'".format(listing.count(), request.args['search'])
