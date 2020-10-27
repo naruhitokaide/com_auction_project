@@ -126,8 +126,8 @@
                 </div>
 
                 <div class="d-block">
-                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-clock orange-icon"></i> Time Left:
-                    <strong>DD:HH:MM</strong></span>
+                  <span class="text-muted font-small d-block mb-2"><i class="fas fa-user orange-icon"></i> Seller:
+                    <strong>{{ listing.seller }}</strong></span>
                 </div>
 
                 <form class="d-inline" action="{{url_for('listing.add_watchlist', listing=listing.id)}}" method="POST">
