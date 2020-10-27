@@ -114,8 +114,11 @@ def watchlist():
       for listing in allListings:
         if watchlistitem.listing_id == listing.id:
           watchlistlistings.append(listing)
+    
+    # Retrieve count of watchlistitems
+    watchListCount = WatchListItem.query.filter_by(user_id=current_user.id).count()
 
-    return render_template('listings/watchlist.html', watchlistitems=watchlistlistings)
+    return render_template('listings/watchlist.html', watchlistitems=watchlistlistings, watchlistcount="({0})".format(watchListCount))
 
 
 @listingbp.route('/watchlist/<listing>/remove', methods=['GET', 'POST'])
