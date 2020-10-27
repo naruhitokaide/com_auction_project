@@ -52,6 +52,7 @@
                         <th scope="col" width="150">User</th>
                         <th scope="col" width="150">Date</th>
                         <th scope="col" width="150">Bid Amount</th>
+                        <th scope="col" width="150">Bid Status</th>
                       </tr>
                     </thead>
             
@@ -68,6 +69,10 @@
                         <td class="align-middle">
                           <p>${{bid.bid_amount}}</p>
                         </td>
+                        <td class="align-middle">
+                          <p>{{bid.bid_status}}</p>
+                        </td>
+                        
                       </tr>
                       {% endfor %}
                     </tbody>
