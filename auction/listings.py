@@ -179,33 +179,39 @@ def placebid(listing):
       bid.listing_id = listing_obj.id
       bid.bidder_name = current_user.name
 
-      # Check if bid is more than current bid 
-      if bid.bid_amount > listing_obj.current_bid:
-        listing_obj.current_bid = bid.bid_amount
+      # Check that user is not bidding on their own listing
+      if listing_obj.seller != current_user.name:
 
-        # Set bid status to winning
-        bid.bid_status = 'Winning'
+        # Check if bid is more than current bid 
+        if bid.bid_amount > listing_obj.current_bid:
+          listing_obj.current_bid = bid.bid_amount
 
-        # Add bid to db
-        db.session.add(bid)
+          # Set bid status to winning
+          bid.bid_status = 'Winning'
 
-        # Set bid status of all other bids to 'Outbid'
-        oldbids = Bid.query.filter_by(listing_id = listing).all()
-        for bid in oldbids[:-1]:
-          bid.bid_status = 'Outbid'
+          # Add bid to db
+          db.session.add(bid)
 
-        # Update total bids 
-        update_total_bids = Listing.query.filter_by(id=listing).first()
-        update_total_bids.total_bids += 1
+          # Set bid status of all other bids to 'Outbid'
+          oldbids = Bid.query.filter_by(listing_id = listing).all()
+          for bid in oldbids[:-1]:
+            bid.bid_status = 'Outbid'
 
-        # Commit bid to db
-        db.session.commit()
-        
-        flash("Bid was successfully placed!", 'success')
-      else: 
-        flash ("Bid amount has to be higher than current bid")
-        
-      print('Bid was successfully placed!', 'success') 
+          # Update total bids 
+          update_total_bids = Listing.query.filter_by(id=listing).first()
+          update_total_bids.total_bids += 1
+
+          # Commit bid to db
+          db.session.commit()
+          
+          flash("Bid was successfully placed!", 'success')
+          print('Bid was successfully placed!', 'success')
+        else: 
+          flash ("Bid amount has to be higher than current bid")
+      else:
+        flash("You cannot bid on your own listing", 'danger')
+        print('User cannot bid on their own listing')
+         
     else: 
       print('Bid form is not valid')
     return redirect(url_for('listing.showlisting', id=listing))
