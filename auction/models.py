@@ -68,6 +68,7 @@ class Bid(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     bid_amount = db.Column(db.Float, nullable = False)
     bid_date = db.Column(db.DateTime, default = datetime.now())
+    bid_status = db.Column(db.String(80), nullable = False)
 
     # Foreign Keys 
     bidder_name = db.Column(db.String(100), db.ForeignKey('users.name'))

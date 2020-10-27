@@ -177,16 +177,23 @@ def placebid(listing):
       if bid.bid_amount > listing_obj.current_bid:
         listing_obj.current_bid = bid.bid_amount
 
+        # Set bid status to winning
+        bid.bid_status = 'Winning'
+
+        # Set bid status of all other bids to outbid
+
         # Update total bids 
         update_total_bids = Listing.query.filter_by(id=listing).first()
         update_total_bids.total_bids += 1
+
+        # Only add bid to db if its higher than current bid 
+        db.session.add(bid)
+        db.session.commit()
         
         flash("Bid was successfully placed!", 'success')
       else: 
         flash ("Bid amount has to be higher than current bid")
-          
-      db.session.add(bid)
-      db.session.commit()
+        
       print('Bid was successfully placed!', 'success') 
     else: 
       print('Bid form is not valid')
