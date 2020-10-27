@@ -100,6 +100,23 @@
     </ul>
   </nav>
 
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+  <!-- check if there are any messages -->
+  <div class="container">
+    <div class="row mt-3 mb-4">
+      <div class="col-md-3">
+        {% for category, message in messages %}
+        <!--loop through the messages-->
+        <div class="text-muted ">{{ message }}</div>
+        <!--display as alert-->
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {% endwith %}
+
   <!-- First Row -->
   <section>
     <div class="container">

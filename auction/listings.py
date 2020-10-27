@@ -205,7 +205,7 @@ def placebid(listing):
           db.session.commit()
           
           flash("Bid was successfully placed!", 'success')
-          print('Bid was successfully placed!', 'success')
+          print('Bid was successfully placed!')
         else: 
           flash ("Bid amount has to be higher than current bid")
       else:

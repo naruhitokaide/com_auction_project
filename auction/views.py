@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, flash 
 from .models import Listing
 from sqlalchemy import or_
 
@@ -25,6 +25,9 @@ def search():
                 Listing.storage_gb.like(item)
             )
         )
+        # Search result message 
+        resultMessage = "{0} results matching '{1}'".format(listing.count(), request.args['search'])
+        flash (resultMessage)
         return render_template('index.html', listings=listing)
     else:
         return redirect(url_for('main.index'))
