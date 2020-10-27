@@ -71,7 +71,11 @@ def check_upload_file(form):
 @login_required
 def mylistings():
   listings = Listing.query.filter_by(seller=current_user.name).all()
-  return render_template('listings/mylistings.html', listings=listings)
+
+  # Retrieve count of user listings
+  myListingsCount = Listing.query.filter_by(seller=current_user.name).count()
+
+  return render_template('listings/mylistings.html', listings=listings, mylistingscount="({0})".format(myListingsCount))
 
 @listingbp.route('/mylistings/<listing>/close', methods=['GET', 'POST'])
 def close_listing(listing):
