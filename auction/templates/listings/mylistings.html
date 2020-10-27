@@ -59,21 +59,37 @@
                     <tbody>
                       <!-- Content -->
                       {% for bid in listing.bids %}
-                      <tr>
-                        <td class="align-middle">
-                          <p>{{bid.bidder_name}}</p>
-                        </td>
-                        <td class="align-middle">
-                          <p>{{bid.bid_date}}</p>
-                        </td>
-                        <td class="align-middle">
-                          <p>${{bid.bid_amount}}</p>
-                        </td>
-                        <td class="align-middle">
-                          <p>{{bid.bid_status}}</p>
-                        </td>
-                        
-                      </tr>
+                        {% if bid.bid_status == 'Won' %} 
+                        <tr class="bg-success">
+                          <td class="align-middle">
+                            <p>{{bid.bidder_name}}</p>
+                          </td>
+                          <td class="align-middle">
+                            <p>{{bid.bid_date}}</p>
+                          </td>
+                          <td class="align-middle">
+                            <p>${{bid.bid_amount}}</p>
+                          </td>
+                          <td class="align-middle">
+                            <p>{{bid.bid_status}}</p>
+                          </td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                          <td class="align-middle">
+                            <p>{{bid.bidder_name}}</p>
+                          </td>
+                          <td class="align-middle">
+                            <p>{{bid.bid_date}}</p>
+                          </td>
+                          <td class="align-middle">
+                            <p>${{bid.bid_amount}}</p>
+                          </td>
+                          <td class="align-middle">
+                            <p>{{bid.bid_status}}</p>
+                          </td>
+                        </tr>
+                        {% endif %}
                       {% endfor %}
                     </tbody>
                   </table>
