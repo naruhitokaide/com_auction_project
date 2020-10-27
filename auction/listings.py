@@ -79,8 +79,14 @@ def mylistings():
 
 @listingbp.route('/mylistings/<listing>/close', methods=['GET', 'POST'])
 def close_listing(listing):
+   # Update listing status to 'Closed'
    update_listing = Listing.query.filter_by(id=listing).first()
    update_listing.status = 'Closed' 
+
+   # Update bid status of higest bid to 'Won'
+   highest_bid = Bid.query.filter_by(listing_id=listing, bid_status='Winning').first()
+   highest_bid.bid_status = 'Won'
+
    db.session.commit()
 
    # Re-render page with updated items 
