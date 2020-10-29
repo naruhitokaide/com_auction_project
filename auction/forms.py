@@ -20,7 +20,7 @@ class RegisterForm(FlaskForm):
     #linking two fields - password should be equal to data entered in confirm
     password = PasswordField('Password', validators=[InputRequired(),
                   EqualTo('confirm', message='Passwords should match')])
-    confirm = PasswordField('Confirm Password')
+    confirm = PasswordField('Confirm Password', validators=[InputRequired()])
 
     #submit button
     submit = SubmitField("Register")
@@ -46,5 +46,5 @@ class ReviewForm(FlaskForm):
     submit = SubmitField('Post Review') 
 
 class BidForm(FlaskForm):
-    bid_amount = DecimalField('', render_kw={"placeholder": "Bid amount..."})
+    bid_amount = DecimalField('', validators=[InputRequired()], render_kw={"placeholder": "Bid amount..."})
     submit = SubmitField('Place Bid')
