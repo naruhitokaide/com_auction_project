@@ -80,19 +80,24 @@ def mylistings():
 
 @listingbp.route('/mylistings/<listing>/close', methods=['GET', 'POST'])
 def close_listing(listing):
-   # Update listing status to 'Closed'
-   update_listing = Listing.query.filter_by(id=listing).first()
-   update_listing.status = 'Closed' 
+  
+    # Retrive Listing Object 
+    update_listing = Listing.query.filter_by(id=listing).first()
 
-   # Update bid status of higest bid to 'Won'
-   highest_bid = Bid.query.filter_by(listing_id=listing, bid_status='Winning').first()
-   highest_bid.bid_status = 'Won'
+    # Update status to closed
+    update_listing.status = 'Closed' 
 
-   db.session.commit()
+    if update_listing.total_bids > 0:
+      # Update bid status of higest bid to 'Won'
+      highest_bid = Bid.query.filter_by(listing_id=listing, bid_status='Winning').first()
+      highest_bid.bid_status = 'Won'
+  
+    db.session.commit()
 
-   # Re-render page with updated items 
-   listings = Listing.query.filter_by(seller=current_user.name).all()
-   return render_template('listings/mylistings.html', listings=listings)
+    # Re-render page with updated items 
+    listings = Listing.query.filter_by(seller=current_user.name).all()
+    flash("The listing has been closed", 'success')
+    return render_template('listings/mylistings.html', listings=listings)
 
 @listingbp.route('<listing>/watchlist', methods=['GET', 'POST'])
 @login_required
@@ -102,7 +107,7 @@ def add_watchlist(listing):
     
     # Returns true if item is already in the current users watchlist
     itemexists = bool(WatchListItem.query.filter_by(listing_id=item.id, user_id=current_user.id).first())
-    
+
     if (itemexists):
       flash ("This listing is already in your Watchlist")
     elif (current_user.name == item.seller):
