@@ -114,6 +114,7 @@ def add_watchlist(listing):
     elif (current_user.name == item.seller):
       flash ("Cannot add your own listing to your Watchlist")
     else: 
+      flash ("Listing was added to your Watchlist", "success")
       db.session.add(watchlist_item)
       db.session.commit()
     return redirect(url_for('listing.showlisting', id=listing))
