@@ -26,6 +26,7 @@
                 Condition:</span><strong> {{listing.condition}}</strong></p>
             <p class="d-block mb-4"><i class="fas fa-sort-numeric-up-alt text-muted"></i><span class="text-muted"> Total
                 Bids:</span><strong> {{listing.total_bids}}</strong></p>
+            <p class="d-block mb-4"><i class="fas fa-tags orange-icon"></i><span class="text-muted"> Starting Bid:</span><strong> {{listing.starting_bid}}</strong></p>
             <form class="d-inline" action="{{url_for('listing.add_watchlist', listing=listing.id)}}" method="POST">
               <button class="btn btn-blue" type="submit"><i class="fas fa-eye"></i> Watch List</button>
             </form>
