@@ -52,6 +52,7 @@ def createlisting():
     db.session.commit()
 
     print('form is valid')
+    flash("Listing has been posted!", 'success')
     return redirect(url_for('listing.createlisting'))
   else:
     print('form is not valid')
