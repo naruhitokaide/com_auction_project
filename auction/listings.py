@@ -100,9 +100,9 @@ def add_watchlist(listing):
     item  = Listing.query.filter_by(id=listing).first()
     watchlist_item = WatchListItem(listing_id = item.id, user_id = current_user.id)
     
-    # Returns true if item is already in table
-    itemexists = bool(WatchListItem.query.filter_by(listing_id=item.id).first())
-
+    # Returns true if item is already in the current users watchlist
+    itemexists = bool(WatchListItem.query.filter_by(listing_id=item.id, user_id=current_user.id).first())
+    
     if (itemexists):
       flash ("This listing is already in your Watchlist")
     elif (current_user.name == item.seller):
