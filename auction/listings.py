@@ -81,7 +81,7 @@ def mylistings():
 @listingbp.route('/mylistings/<listing>/close', methods=['GET', 'POST'])
 def close_listing(listing):
   
-    # Retrive Listing Object 
+    # Retrive Listing Object and Bid List
     update_listing = Listing.query.filter_by(id=listing).first()
 
     # Update status to closed
@@ -97,6 +97,7 @@ def close_listing(listing):
     # Re-render page with updated items 
     listings = Listing.query.filter_by(seller=current_user.name).all()
     flash("The listing has been closed", 'success')
+
     return render_template('listings/mylistings.html', listings=listings)
 
 @listingbp.route('<listing>/watchlist', methods=['GET', 'POST'])

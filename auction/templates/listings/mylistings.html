@@ -36,18 +36,25 @@
             <div class="col-md-3">
               <img src="{{listing.image_url}}" class="card-img" alt="...">
             </div>
-            <div class="col-md-9">
-              <div class="card-body">
+            <div class="col-md-4">
+              <div class="card-body py-0 mt-2">
                 <a href="{{url_for('listing.showlisting', id=listing.id)}}"><h5 class="card-title">{{listing.title}}</h5></a>
                 {% if listing.status == 'Active' %} 
-                <p class="d-block mb-2"><i class="fas fa-check-circle text-success"></i><span class="text-muted">
+                <p class="d-block mb-1"><i class="fas fa-check-circle text-success"></i><span class="text-muted">
                   Status:</span><strong> {{listing.status}}</strong></p>
                 {% else %}
-                <p class="d-block mb-2"><i class="fas fa-times-circle text-danger"></i><span class="text-muted">
+                <p class="d-block mb-1"><i class="fas fa-times-circle text-danger"></i><span class="text-muted">
                   Status:</span><strong> {{listing.status}}</strong></p>
                 {% endif %}
-                <p class="d-block mb-2"><i class="fas fa-sort-numeric-up-alt text-muted"></i><span class="text-muted"> Total
+                <p class="d-block mb-1"><i class="fas fa-sort-numeric-up-alt text-muted"></i><span class="text-muted"> Total
                   Bids:</span><strong> {{listing.total_bids}}</strong></p>
+                {% if listing.status == 'Active' %}
+                <p class="d-block mb-1"><i class="fas fa-tags orange-icon"></i><span class="text-muted">
+                  Current Bid:</span><strong> ${{ listing.current_bid }}</strong></p>
+                {% else %} 
+                <p class="d-block mb-1"><i class="fas fa-tags orange-icon"></i><span class="text-muted">
+                  Final Price:</span><strong> ${{ listing.current_bid }}</strong></p>
+                {% endif %}
                 <div>
                   <button class="btn btn-primary d-inline" type="button" data-toggle="collapse" data-target="#listingBids" aria-expanded="false" aria-controls="listingBids">See all Bids</button>
                 
@@ -57,63 +64,76 @@
                   </form>
                   {% endif %}
                 </div>
-                
-
-                <div class="collapse container card table-responsive p-0 mt-3" id="listingBids">
-                  <table class="table">
-                    <thead class="text-muted thead-light">
-                      <tr>
-                        <th scope="col" width="150">User</th>
-                        <th scope="col" width="150">Date</th>
-                        <th scope="col" width="150">Bid Amount</th>
-                        <th scope="col" width="150">Bid Status</th>
+              </div>
+            </div>
+            <!-- 
+            {% if listing.status == 'Closed' and listing.total_bids > 0 %}
+            <div class="col-md-4 align-self-center">
+              <div class="border py-3 shadow">
+                <p class="d-block mb-2 ml-3"><i class="fas fa-user blue-text"></i><span class="text-muted">
+                  Sold to:</span><strong> {{ buyer_name}}</strong></p>
+                <p class="d-block mb-2 ml-3"><i class="fas fa-tags orange-icon"></i><span class="text-muted">
+                  End Price:</span><strong> ${{ listing.current_bid }}</strong></p>
+              </div>
+            </div>
+            {% endif %}
+            -->
+          </div>
+          <div class="row no-gutters justify-content-end">
+            <div class="col-md-9">
+              <div class="collapse container card table-responsive p-0 mt-3" id="listingBids">
+                <table class="table">
+                  <thead class="text-muted thead-light">
+                    <tr>
+                      <th scope="col" width="150">User</th>
+                      <th scope="col" width="150">Date</th>
+                      <th scope="col" width="150">Bid Amount</th>
+                      <th scope="col" width="150">Bid Status</th>
+                    </tr>
+                  </thead>
+          
+                  <tbody>
+                    <!-- Content -->
+                    {% for bid in listing.bids %}
+                      {% if bid.bid_status == 'Won' %} 
+                      <tr class="btn-default">
+                        <td class="align-middle">
+                          <p>{{bid.bidder_name}}</p>
+                        </td>
+                        <td class="align-middle">
+                          <p>{{bid.bid_date}}</p>
+                        </td>
+                        <td class="align-middle">
+                          <p>${{bid.bid_amount}}</p>
+                        </td>
+                        <td class="align-middle">
+                          <p>🎉 {{bid.bid_status}} 🎉</p>
+                        </td>
                       </tr>
-                    </thead>
-            
-                    <tbody>
-                      <!-- Content -->
-                      {% for bid in listing.bids %}
-                        {% if bid.bid_status == 'Won' %} 
-                        <tr class="btn-default">
-                          <td class="align-middle">
-                            <p>{{bid.bidder_name}}</p>
-                          </td>
-                          <td class="align-middle">
-                            <p>{{bid.bid_date}}</p>
-                          </td>
-                          <td class="align-middle">
-                            <p>${{bid.bid_amount}}</p>
-                          </td>
-                          <td class="align-middle">
-                            <p>🎉 {{bid.bid_status}} 🎉</p>
-                          </td>
-                        </tr>
-                        {% else %}
-                        <tr>
-                          <td class="align-middle">
-                            <p>{{bid.bidder_name}}</p>
-                          </td>
-                          <td class="align-middle">
-                            <p>{{bid.bid_date}}</p>
-                          </td>
-                          <td class="align-middle">
-                            <p>${{bid.bid_amount}}</p>
-                          </td>
-                          <td class="align-middle">
-                            <p>{{bid.bid_status}}</p>
-                          </td>
-                        </tr>
-                        {% endif %}
-                      {% endfor %}
-                    </tbody>
-                  </table>
-                </div>
+                      {% else %}
+                      <tr>
+                        <td class="align-middle">
+                          <p>{{bid.bidder_name}}</p>
+                        </td>
+                        <td class="align-middle">
+                          <p>{{bid.bid_date}}</p>
+                        </td>
+                        <td class="align-middle">
+                          <p>${{bid.bid_amount}}</p>
+                        </td>
+                        <td class="align-middle">
+                          <p>{{bid.bid_status}}</p>
+                        </td>
+                      </tr>
+                      {% endif %}
+                    {% endfor %}
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
         </div>
       {% endfor %}
     </div>
-    
 </main>
 {% endblock %}
