@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, session, url_for, redirect, flash
+from flask import Blueprint, render_template, request, session, url_for, redirect, flash, abort
 from .models import Listing, Review, Bid, WatchListItem
 from auction.forms import ListingForm, ReviewForm, BidForm
 from . import db
@@ -81,7 +81,7 @@ def mylistings():
 
 @listingbp.route('/mylistings/<listing>/close', methods=['GET', 'POST'])
 def close_listing(listing):
-  
+
     # Retrive Listing Object and Bid List
     update_listing = Listing.query.filter_by(id=listing).first()
 
@@ -125,7 +125,7 @@ def add_watchlist(listing):
 def watchlist():
     watchListItems = WatchListItem.query.filter_by(user_id = current_user.id).all()
     allListings = Listing.query.filter_by(status='Active').all()
-
+ 
     watchlistlistings = []
 
     # Find listings that are inside of the users watch list

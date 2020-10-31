@@ -42,9 +42,13 @@ def create_app():
     def load_user(user_id):
         return User.query.get(int(user_id))
     
-    # Error handler if page cannot be found 
+    # Error handlers
     @app.errorhandler(404)
     def invalid_route(e):
         return render_template('404.html')
+
+    @app.errorhandler(500)
+    def invalid_route(e):
+        return render_template('500.html')
 
     return app
