@@ -5,6 +5,7 @@ from . import db
 from werkzeug.utils import secure_filename
 import os
 from flask_login import login_required, current_user
+from datetime import datetime, date
 
 
 # Create listing blueprint
@@ -104,7 +105,7 @@ def close_listing(listing):
 @login_required
 def add_watchlist(listing):
     item  = Listing.query.filter_by(id=listing).first()
-    watchlist_item = WatchListItem(listing_id = item.id, user_id = current_user.id)
+    watchlist_item = WatchListItem(listing_id = item.id, user_id = current_user.id, date_added=datetime.now())
     
     # Returns true if item is already in the current users watchlist
     itemexists = bool(WatchListItem.query.filter_by(listing_id=item.id, user_id=current_user.id).first())
@@ -137,7 +138,7 @@ def watchlist():
     watchListCount = WatchListItem.query.filter_by(user_id=current_user.id).count()
 
     return render_template('listings/watchlist.html', watchlistlistings=watchlistlistings,
-     watchlistcount="({0})".format(watchListCount))
+     watchlistcount="({0})".format(watchListCount), watchlistitems=watchListItems)
 
 
 @listingbp.route('/watchlist/<listing>/remove', methods=['GET', 'POST'])
@@ -162,9 +163,8 @@ def remove_watchlist(listing):
    watchListCount = WatchListItem.query.filter_by(user_id=current_user.id).count()
 
    return render_template('listings/watchlist.html', watchlistlistings=watchlistlistings,
-     watchlistcount="({0})".format(watchListCount))
-
-
+     watchlistcount="({0})".format(watchListCount), watchlistitems=watchListItems)
+     
 @listingbp.route('/<listing>/review', methods = ['GET', 'POST'])  
 @login_required
 def review(listing):
@@ -177,6 +177,7 @@ def review(listing):
       db.session.add(review)
       db.session.commit()
       print('Thank you for submitting a review of this item', 'success') 
+
     return redirect(url_for('listing.showlisting', id=listing))
 
 @listingbp.route('/<listing>/bid', methods = ['GET', 'POST'])  

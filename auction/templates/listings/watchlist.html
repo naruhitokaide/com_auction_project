@@ -19,35 +19,39 @@
       <div class="container">
         <div class="row mb-4">
           {% for listing in watchlistlistings %}
-            <div class="col-md-6 col-lg-3">
-              <div class="card shadow-sm border-light mb-4 listing-card">
-                <a href="{{url_for('listing.showlisting', id=listing.id)}}" class="position-relative">
-                  <img src="{{ listing.image_url }}" class="card-img-top" alt="image"> </a>
-                <div class="card-body">
-                  <a href="{{url_for('listing.showlisting', id=listing.id)}}">
-                    <h5 class="font-weight-normal">{{ listing.title }}</h5>
-                  </a>
-                  <p class="d-block mb-2"><i class="fas fa-check-circle text-success"></i><span class="text-muted">
-                    Status:</span><strong> {{listing.status}}</strong></p>
-                  <div class="d-block">
-                    <span class="text-muted font-small d-block mb-2"><i
-                        class="fas fa-sort-numeric-up-alt orange-icon"></i> Total Bids:
-                      <strong>{{ listing.total_bids }}</strong></span>
+            {% for item in watchlistitems %}
+              {% if item.listing_id == listing.id %}
+              <div class="col-md-6 col-lg-3">
+                <div class="card shadow-sm border-light mb-4 listing-card">
+                  <a href="{{url_for('listing.showlisting', id=listing.id)}}" class="position-relative">
+                    <img src="{{ listing.image_url }}" class="card-img-top" alt="image"> </a>
+                  <div class="card-body">
+                    <a href="{{url_for('listing.showlisting', id=listing.id)}}">
+                      <h5 class="font-weight-normal">{{ listing.title }}</h5>
+                    </a>
+                    <p class="d-block mb-2"><i class="fas fa-check-circle text-success"></i><span class="text-muted">
+                      Status:</span><strong> {{listing.status}}</strong></p>
+                    <div class="d-block">
+                      <span class="text-muted font-small d-block mb-2"><i
+                          class="fas fa-sort-numeric-up-alt orange-icon"></i> Total Bids:
+                        <strong>{{ listing.total_bids }}</strong></span>
+                    </div>
+                    <div class="d-block">
+                      <span class="text-muted font-small d-block mb-2"><i class="fas fa-tags orange-icon"></i> Current Bid:
+                        <strong>${{ listing.current_bid }}</strong></span>
+                    </div>
+                    <div class="d-block">
+                      <span class="text-muted font-small d-block mb-2"><i class="fas fa-clock text-warning"></i> Date Added:
+                        <strong>{{ item.date_added }}</strong></span>
+                    </div>
+                    <form class="d-inline" action="{{url_for('listing.remove_watchlist', listing=listing.id)}}" method="POST">
+                      <button class="btn btn-danger" type="submit"> Remove</button>
+                    </form>
                   </div>
-                  <div class="d-block">
-                    <span class="text-muted font-small d-block mb-2"><i class="fas fa-tags orange-icon"></i> Current Bid:
-                      <strong>${{ listing.current_bid }}</strong></span>
-                  </div>
-                  <div class="d-block">
-                    <span class="text-muted font-small d-block mb-2"><i class="fas fa-clock text-warning"></i> Date Added:
-                      <strong>{{ date_added }}</strong></span>
-                  </div>
-                  <form class="d-inline" action="{{url_for('listing.remove_watchlist', listing=listing.id)}}" method="POST">
-                    <button class="btn btn-danger" type="submit"> Remove</button>
-                  </form>
                 </div>
               </div>
-            </div>
+              {% endif %}
+            {% endfor %}
           {% endfor %}
         </div>
       </div>
