@@ -48,7 +48,7 @@ def create_app():
         return render_template('404.html')
 
     @app.errorhandler(500)
-    def invalid_route(e):
+    def internal_error(e):
         return render_template('500.html')
 
     return app
