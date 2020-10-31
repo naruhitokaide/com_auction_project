@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, Blueprint, render_template, request, session, url_for, redirect, flash
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
@@ -10,7 +10,6 @@ def create_app():
     print(__name__)
     app = Flask(__name__)
     app.secret_key='iab207assesment3'
-
 
     # Set app configuration data
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///auction.sqlite'
@@ -42,5 +41,10 @@ def create_app():
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))
+    
+    # Error handler if page cannot be found 
+    @app.errorhandler(404)
+    def invalid_route(e):
+        return render_template('404.html')
 
     return app
