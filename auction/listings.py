@@ -143,7 +143,7 @@ def watchlist():
 
 @listingbp.route('/watchlist/<listing>/remove', methods=['GET', 'POST'])
 def remove_watchlist(listing):
-   update_watchlist = WatchListItem.query.filter_by(listing_id=listing).first()
+   update_watchlist = WatchListItem.query.filter_by(listing_id=listing, user_id=current_user.id).first()
    db.session.delete(update_watchlist)
    db.session.commit()
 
@@ -164,7 +164,7 @@ def remove_watchlist(listing):
 
    return render_template('listings/watchlist.html', watchlistlistings=watchlistlistings,
      watchlistcount="({0})".format(watchListCount), watchlistitems=watchListItems)
-     
+
 @listingbp.route('/<listing>/review', methods = ['GET', 'POST'])  
 @login_required
 def review(listing):
