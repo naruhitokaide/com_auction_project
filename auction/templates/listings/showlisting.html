@@ -73,7 +73,11 @@
           <div class="row border py-3 shadow mt-3">
             <!-- Left Side -->
             <div class="col-lg-3 text-center">
+              {% if listing.total_bids > 0%}
               <p>Current Bid</p>
+              {% else %}
+              <p>Starting Bid</p>
+              {% endif %}
               <h4 class="orange-icon">${{listing.current_bid}}</h4>
             </div>
 
