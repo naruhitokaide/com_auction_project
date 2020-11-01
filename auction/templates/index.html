@@ -87,8 +87,8 @@
                     <strong>{{ listing.seller }}</strong></span>
                 </div>
 
-                <form class="d-inline" action="{{url_for('listing.add_watchlist', listing=listing.id)}}" method="POST">
-                  <button class="btn btn-blue" href="" type="submit"><i class="fas fa-eye"></i> Watch List</button>
+                <form action="{{url_for('listing.add_watchlist', listing=listing.id)}}" method="POST">
+                  <button class="btn btn-blue btn-block" href="" type="submit"><i class="fas fa-eye"></i> Watch List</button>
                 </form>
               </div>
             </div>
