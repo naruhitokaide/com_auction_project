@@ -1,6 +1,4 @@
-# IAB207_ASSESSMENT_3 
-
-Group 14
+Techprowl Auction Website
 
 # Authors: 
 
