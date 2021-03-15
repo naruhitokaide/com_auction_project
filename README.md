@@ -2,6 +2,8 @@
 
 A simple CRUD website for auctioning computers
 
+![alt text](https://postimg.cc/pp7yk6bs)
+
 ## Technologies Used
 
 1. HTML & Bootstrap CSS
