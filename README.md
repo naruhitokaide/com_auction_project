@@ -1,8 +1,7 @@
 # Techprowl Auction Website
 
-A simple CRUD website for auctioning computers
+A simple CRUD website for auctioning computers. View at https://iab207-assessment-3.herokuapp.com/
 
-![alt text](https://postimg.cc/pp7yk6bs)
 
 ## Technologies Used
 
