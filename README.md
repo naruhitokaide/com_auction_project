@@ -5,7 +5,7 @@ A simple CRUD website for auctioning computers. View at https://iab207-assessmen
 
 ## Technologies Used
 
-1. HTML & Bootstrap CSS
+1. Bootstrap CSS
 2. Flask Templates
 3. Flask WTForms
 4. Flask SQLAlchemy
