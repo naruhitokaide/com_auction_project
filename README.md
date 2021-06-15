@@ -11,10 +11,3 @@ A simple CRUD website for auctioning computers. View at https://iab207-assessmen
 - Flask SQLAlchemy
 - Flask Login
 
-## Authors: 
-
-- Ben Rogers
-- Jenny Jeong 
-- Liam Amos 
-- Kristina Icong
-
