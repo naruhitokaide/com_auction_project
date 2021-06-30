@@ -7,6 +7,7 @@ A CRUD website for auctioning computers. View at https://iab207-assessment-3.her
 - HTML
 - CSS
 - Bootstrap
+- Python
 - Flask
   - Flask Templates
   - Flask WTForms
